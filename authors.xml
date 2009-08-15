@@ -14,4 +14,9 @@
     <prename>John</prename>
     <surname>Doe</surname>
   </author>
+  <!-- An author with no article to test whether she will be hidden -->
+  <author id="jane_doe">
+    <prename>Jane</prename>
+    <surname>Doe</surname>
+  </author>
 </authors>

@@ -86,12 +86,13 @@
   </xsl:template>
   
   
-  
-  <!-- Main template -->
+
+  <!-- Call main template -->
   <xsl:template match="/">
     <xsl:apply-templates select="document('page.xml')/page"/>
   </xsl:template>
-  
+
+  <!-- Main template -->
   <xsl:template match="/page">
     <html>
       <head>
