@@ -83,8 +83,14 @@
     </xsl:for-each>
   </xsl:template>
   
+  
+  
   <!-- Main template -->
   <xsl:template match="/">
+    <xsl:apply-templates select="document('page.xml')/page"/>
+  </xsl:template>
+  
+  <xsl:template match="/page">
     <html>
       <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
