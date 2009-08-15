@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<articles>
+  <!-- Die Einträge sind bewusst in falscher Reihenfolge, um zu testen, ob sie korrekt sortiert werden -->
+  <article>
+    <categories>
+      <category id="internes" />
+    </categories>
+    <authors>
+      <author id="christian_romacker" />
+    </authors>
+    <creation_timestamp year="2008" month="10" day="18" hours="5" minutes="10" seconds="32" />
+    <title>Herzlich willkommen!</title>
+    <content>
+      <p>Sehr geehrter Besucher,</p>
+      <p>Hier entsteht in enger Zusammenarbeit mit Behörden, Parteien, Religionsgemeinschaften und privaten Organisationen das Internet-Portal für „Sekten“ -Aussteiger, -Betroffene, Pädagogen und Unternehmrer in Deutschland, Österreich und der Schweiz.</p>
+      <p>Bitte haben Sie Verständnis, dass bedingt durch die Fülle an Informationen und Recherchen noch kein funktionierender Web-Auftritt möglich ist.</p>
+      <p>Alle Inhalte, die in der nächsten Zeit hier zu finden sind, dienen vorerst nur zu Testzwecken. Interessierte können sich jedoch schon jetzt über unser <a href="../../kontaktformular.html">Kontaktformular</a> an uns wenden. <a href="../infomaterial">Hier</a> werden Sie in Zukunft
+      weiteres Info-Material finden.</p>
+      <p>Ihr Aber-Glaube Team</p>
+    </content>
+  </article>
+  <article>
+    <categories>
+      <category id="internes" />
+    </categories>
+    <authors>
+      <author id="john_doe" />
+    </authors>
+    <creation_timestamp year="2008" month="10" day="4" hours="3" minutes="4" seconds="42" />
+    <title>Test</title>
+    <content>
+      <p>Willkommen bei XMulti. Dies ist Ihr erster Beitrag. Bearbeiten oder löschen Sie Ihn, und fangen Sie dann mit dem Bloggen an!</p>
+    </content>
+  </article>
+  <article>
+    <categories>
+      <category id="internes" />
+      <category id="paedagogen" />
+      <category id="unternehmer" />
+    </categories>
+    <authors>
+      <author id="christian_romacker" />
+      <author id="wolfgang_keller" />
+    </authors>
+    <creation_timestamp year="2009" month="5" day="30" hours="3" minutes="35" seconds="22" />
+    <title>Neuer Testbeitrag</title>
+    <content>
+      <p>Dies ist ein zweiter Testbeitrag</p>
+    </content>
+  </article>
+</articles>

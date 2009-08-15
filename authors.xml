@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<authors>
+  <!-- Die Autoren sind nicht alphabetisch sortiert, um zu testen, ob sie korrekt sortiert werden -->
+  <author id="christian_romacker">
+    <prename>Christian</prename>
+    <surname>Romacker</surname>
+  </author>
+  <author id="wolfgang_keller">
+    <prename>Wolfgang</prename>
+    <surname>Keller</surname>
+    <date_of_birth year="1986" month="5" day="8" />
+  </author>
+  <author id="john_doe">
+    <prename>John</prename>
+    <surname>Doe</surname>
+  </author>
+</authors>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<categories>
+  <!-- Die Kategorien werden exakt in dieser Reihenfolge angezeigt -->
+  <category id="paedagogen">Für Pädagogen</category>
+  <category id="unternehmer">Für Unternehmer</category>
+  <category id="internes">Internes</category>
+  <!-- Eingefügt, um zu testen, ob nicht benutzte Kategorien ausgeblendet werden -->
+  <category id="webstandards">Webstandards</category>
+</categories>
