@@ -21,8 +21,9 @@
   </xsl:template>
   
   <!-- Print the articles -->
-  <xsl:template match="/articles">
-    <xsl:for-each select="article">
+  <xsl:template name="print_articles">
+    <xsl:param name="articles" />
+    <xsl:for-each select="$articles/article">
       <!-- Order articles by date and time -->
       <xsl:sort order="descending" select="creation_timestamp/@year" data-type="number" />
       <xsl:sort order="descending" select="creation_timestamp/@month" data-type="number" />
@@ -74,7 +75,7 @@
               <br />
               <img src="http://www.aber-glaube.net/blog/wp-content/themes/theorem_deutsch/images/icons/gif/folder_page_home.gif" alt="Filed To" />
               <span class="filedto">
-                Abgelegt unter:
+                Abgelegt unter
                 <a href="http://www.aber-glaube.net/blog/?cat=1" title="Alle Artikel in :: Internes anzeigen" rel="category">:: Internes</a>,  <a href="http://www.aber-glaube.net/blog/?cat=5" title="Alle Artikel in :: für Pädagogen anzeigen" rel="category">:: für Pädagogen</a>,  <a href="http://www.aber-glaube.net/blog/?cat=6" title="Alle Artikel in :: für Unternehmer anzeigen" rel="category">:: für Unternehmer</a>
               </span>
             </p>
@@ -84,8 +85,6 @@
       </div>
     </xsl:for-each>
   </xsl:template>
-  
-  
 
   <!-- Call main template -->
   <xsl:template match="/">
@@ -157,7 +156,9 @@
               <div class="alignright"></div>
             </div>
 
-            <xsl:apply-templates select="document('articles.xml')/articles" />
+            <xsl:call-template name="print_articles">
+              <xsl:with-param name="articles" select="document('articles.xml')/articles" />
+            </xsl:call-template>
 
             <div class="entry-archive">
               <div class="entrytitle">
