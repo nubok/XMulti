@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<categories>
+<categories xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="categories.xsd">
   <!-- Die Kategorien werden exakt in dieser Reihenfolge angezeigt -->
   <category id="paedagogen">Für Pädagogen</category>
   <category id="unternehmer">Für Unternehmer</category>

@@ -50,7 +50,9 @@
         <!-- Print article content -->
         <div class="entrybody">
           <xsl:for-each select="content/p">
-            <xsl:apply-templates/>
+            <p>
+              <xsl:apply-templates/>
+            </p>
           </xsl:for-each>
         </div>
         <div class="entrymeta">

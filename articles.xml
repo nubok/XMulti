@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<articles>
+<articles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="articles.xsd">
   <!-- Die Einträge sind bewusst in falscher Reihenfolge, um zu testen, ob sie korrekt sortiert werden -->
   <article>
     <categories>
