@@ -114,10 +114,11 @@
         <li>
           <a href="#">
             <xsl:attribute name="title">
-              <xsl:text>Alle Beiträge von </xsl:text>
+              <xsl:text>Alle Beiträge von '</xsl:text>
               <xsl:value-of select="prename" />
               <xsl:text> </xsl:text>
               <xsl:value-of select="surname" />
+              <xsl:text>' anzeigen</xsl:text>
             </xsl:attribute>
             <xsl:value-of select="prename" />
             <xsl:text> </xsl:text>
