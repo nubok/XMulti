@@ -44,10 +44,10 @@
 
   <!-- From given author ids this template generated an
   ordered list -->
-  <xsl:template name="create-sorted-author-list">
-    <!-- author-ids: <authors><author id="..."/><author id="..."/>...</authors> -->
+  <!--<xsl:template name="create-sorted-author-list">
+    --><!-- author-ids: <authors><author id="..."/><author id="..."/>...</authors> --><!--
     <xsl:param name="author-ids"/>
-    <!-- author-ids: <authors><author id="...">properties</author><author id="...">properties</author>...</authors> -->
+    --><!-- author-ids: <authors><author id="...">properties</author><author id="...">properties</author>...</authors> --><!--
     <xsl:param name="authors"/>
 
     <xsl:variable name="authors-with-ids">
@@ -66,5 +66,5 @@
         </xsl:for-each>
       </authors>
     </xsl:variable>
-  </xsl:template>
+  </xsl:template>-->
 </xsl:stylesheet>

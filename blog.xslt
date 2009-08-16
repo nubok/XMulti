@@ -86,6 +86,49 @@
     </xsl:for-each>
   </xsl:template>
 
+  <xsl:template name="print_categories_list">
+    <ul>
+      <xsl:for-each select="document('categories.xml')/categories/category">
+        <xsl:sort select="."/>
+        <!-- For current current category add 'current-cat' after 'cat-item' -->
+        <li class="cat-item">
+          <a href="#">
+            <xsl:attribute name="title">
+              <xsl:text>Alle in '</xsl:text>
+              <xsl:value-of select="." />
+              <xsl:text>' gespeicherten Artikel anzeigen</xsl:text>
+            </xsl:attribute>
+            <xsl:value-of select="." />
+          </a>
+          <xsl:text> (</xsl:text>69<xsl:text>)</xsl:text>
+        </li>
+      </xsl:for-each>
+    </ul>
+  </xsl:template>
+  
+  <xsl:template name="print_authors_list">
+    <ul>
+      <xsl:for-each select="document('authors.xml')/authors/author">
+        <xsl:sort select="surname"/>
+        <xsl:sort select="prename"/>
+        <li>
+          <a href="#">
+            <xsl:attribute name="title">
+              <xsl:text>Alle Beiträge von </xsl:text>
+              <xsl:value-of select="prename" />
+              <xsl:text> </xsl:text>
+              <xsl:value-of select="surname" />
+            </xsl:attribute>
+            <xsl:value-of select="prename" />
+            <xsl:text> </xsl:text>
+            <xsl:value-of select="surname" />
+          </a>
+          <xsl:text> (</xsl:text>42<xsl:text>)</xsl:text>
+        </li>
+      </xsl:for-each>
+    </ul>
+  </xsl:template>
+
   <!-- Call main template -->
   <xsl:template match="/">
     <xsl:apply-templates select="document('page.xml')/page"/>
@@ -126,24 +169,10 @@
               </ul>
               <br />
               <h2>Kategorien</h2>
-              <ul>
-                <li class="cat-item cat-item-5">
-                  <a href="http://www.aber-glaube.net/blog/?cat=5" title="Alle in :: für Pädagogen gespeicherten Artikel anzeigen">:: für Pädagogen</a> (1)
-                </li>
-                <li class="cat-item cat-item-6">
-                  <a href="http://www.aber-glaube.net/blog/?cat=6" title="Alle in :: für Unternehmer gespeicherten Artikel anzeigen">:: für Unternehmer</a> (1)
-                </li>
-                <li class="cat-item cat-item-1 current-cat">
-                  <a href="http://www.aber-glaube.net/blog/?cat=1" title="Alle in :: Internes gespeicherten Artikel anzeigen">:: Internes</a> (3)
-                </li>
-              </ul>
+              <xsl:call-template name="print_categories_list" />
               <br />
               <h2>Autoren</h2>
-              <ul>
-                <li>
-                  <a href="http://www.aber-glaube.net/blog/?author=1" title="Beiträge von admin">Christian Romacker</a> (3)
-                </li>
-              </ul>
+              <xsl:call-template name="print_authors_list" />
               <br />
             </div>
           </div>
