@@ -22,8 +22,7 @@
   
   <!-- Print the articles -->
   <xsl:template name="print_articles">
-    <xsl:param name="articles" />
-    <xsl:for-each select="$articles/article">
+    <xsl:for-each select="document('articles.xml')/articles/article">
       <!-- Order articles by date and time -->
       <xsl:sort order="descending" select="creation_timestamp/@year" data-type="number" />
       <xsl:sort order="descending" select="creation_timestamp/@month" data-type="number" />
@@ -186,9 +185,7 @@
               <div class="alignright"></div>
             </div>
 
-            <xsl:call-template name="print_articles">
-              <xsl:with-param name="articles" select="document('articles.xml')/articles" />
-            </xsl:call-template>
+            <xsl:call-template name="print_articles" />
 
             <div class="entry-archive">
               <div class="entrytitle">

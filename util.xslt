@@ -41,30 +41,4 @@
       </xsl:if>
     </xsl:for-each>
   </xsl:template>
-
-  <!-- From given author ids this template generated an
-  ordered list -->
-  <!--<xsl:template name="create-sorted-author-list">
-    --><!-- author-ids: <authors><author id="..."/><author id="..."/>...</authors> --><!--
-    <xsl:param name="author-ids"/>
-    --><!-- author-ids: <authors><author id="...">properties</author><author id="...">properties</author>...</authors> --><!--
-    <xsl:param name="authors"/>
-
-    <xsl:variable name="authors-with-ids">
-      <authors>
-        <xsl:for-each select="$authors/authors/author">
-          <xsl:sort select="surname"/>
-          <xsl:sort select="prename"/>
-          <xsl:variable name="act-author" select="."/>
-          <xsl:for-each select="$author-ids/authors/author">
-            <xsl:if test="@id=$act-author/@id">
-              <author>
-                <xsl:value-of select="."/>
-              </author>
-            </xsl:if>
-          </xsl:for-each>
-        </xsl:for-each>
-      </authors>
-    </xsl:variable>
-  </xsl:template>-->
 </xsl:stylesheet>
