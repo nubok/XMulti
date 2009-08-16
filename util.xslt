@@ -26,6 +26,60 @@
     <xsl:value-of select="$year"/>
   </xsl:template>
 
+  <xsl:template name="join-and-sort-categories">
+    <xsl:param name="categories"/>
+
+    <categories>
+      <xsl:for-each select="document('categories.xml')/categories/category">
+        <xsl:sort select="."/>
+
+        <xsl:variable name="act_category" select="."/>
+
+        <xsl:for-each select="$categories/categories/category">
+          <xsl:if test="@id=$act_category/@id">
+            <category>
+              <xsl:attribute name="id">
+                <xsl:value-of select="$act_category/@id"/>
+              </xsl:attribute>
+              <category>
+                <xsl:value-of select="$act_category"/>
+              </category>
+            </category>
+          </xsl:if>
+        </xsl:for-each>
+      </xsl:for-each>
+    </categories>
+  </xsl:template>
+
+  <xsl:template name="join-and-sort-authors">
+    <xsl:param name="authors"/>
+
+    <authors>
+      <xsl:for-each select="document('authors.xml')/authors/author">
+        <xsl:sort select="surname"/>
+        <xsl:sort select="prename"/>
+
+        <xsl:variable name="act_author" select="."/>
+
+        <xsl:for-each select="$authors/authors/author">
+          <xsl:if test="@id=$act_author/@id">
+            <author>
+              <xsl:attribute name="id">
+                <xsl:value-of select="$act_author/@id"/>
+              </xsl:attribute>
+              <prename>
+                <xsl:value-of select="$act_author/prename"/>
+              </prename>
+              <surname>
+                <xsl:value-of select="$act_author/surname"/>
+              </surname>
+            </author>
+          </xsl:if>
+        </xsl:for-each>
+      </xsl:for-each>
+    </authors>
+  </xsl:template>
+
   <!-- Generates an author name from author id -->
   <xsl:template name="format-author">
     <xsl:param name="author-id"/>
