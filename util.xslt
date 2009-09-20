@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="xml" indent="yes"/>
 
   <xsl:template name="format-date">
@@ -26,7 +26,7 @@
     <xsl:value-of select="$year"/>
   </xsl:template>
 
-  <xsl:template name="join-and-sort-categories">
+  <xsl:template name="categories-from-article">
     <xsl:param name="categories"/>
 
     <categories>
@@ -51,7 +51,7 @@
     </categories>
   </xsl:template>
 
-  <xsl:template name="join-and-sort-authors">
+  <xsl:template name="authors-from-article">
     <xsl:param name="authors"/>
 
     <authors>
@@ -81,11 +81,11 @@
   </xsl:template>
 
   <!-- Generates an author name from author id -->
-  <xsl:template name="format-author">
+  <!--<xsl:template name="format-author">
     <xsl:param name="author-id"/>
     <xsl:param name="authors"/>
 
-    <xsl:for-each select="$authors/authors/author">
+    <xsl:for-each select="document('authors.xml')/authors/author">
       <xsl:if test="@id=$author-id">
         <a href="#">
           <xsl:value-of select="prename"/>
@@ -94,5 +94,5 @@
         </a>
       </xsl:if>
     </xsl:for-each>
-  </xsl:template>
+  </xsl:template>-->
 </xsl:stylesheet>

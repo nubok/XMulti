@@ -1,25 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://www.w3.org/1999/xhtml">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:exslt="http://exslt.org/common"
+                xmlns:msxsl="urn:schemas-microsoft-com:xslt"
+                exclude-result-prefixes="exslt msxsl">
   <xsl:output method="xml" indent="yes" omit-xml-declaration="yes" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" />
   <xsl:include href="header_footer.xslt"/>
   <xsl:include href="blog_head_area.xslt"/>
   <xsl:include href="util.xslt"/>
-  
-  <!-- Text in paragraph in article -->
-  <xsl:template match="p/text()">
-    <xsl:value-of select="."/>
-  </xsl:template>
+  <xsl:include href="html.xslt"/>
+  <!--<xsl:include href="ie.xslt"/>-->
 
-  <!-- Links in paragraph in article -->
-  <xsl:template match="p/a">
-    <a>
-      <xsl:attribute name="href">
-        <xsl:value-of select="@href"/>
-      </xsl:attribute>
-      <xsl:value-of select="."/>
-    </a>
-  </xsl:template>
-  
   <!-- Print the articles -->
   <xsl:template name="print_articles">
     <xsl:for-each select="document('articles.xml')/articles/article">
@@ -51,7 +42,7 @@
         <div class="entrybody">
           <xsl:for-each select="content/p">
             <p>
-              <xsl:apply-templates/>
+              <xsl:apply-templates mode="html"/>
             </p>
           </xsl:for-each>
         </div>
@@ -62,15 +53,22 @@
               <!-- Print the names of the authors -->
               <span class="postedby">
                 Eingetragen von
-                <xsl:for-each select="authors/author">
-                  <xsl:call-template name="format-author">
-                    <xsl:with-param name="author-id" select="@id"/>
-                    <xsl:with-param name="authors" select="document('authors.xml')"/>
+                <xsl:variable name="authors_root">
+                  <xsl:call-template name="authors-from-article">
+                    <xsl:with-param name="authors" select="."/>
                   </xsl:call-template>
-                  <xsl:text> </xsl:text>
+                </xsl:variable>
+                <xsl:for-each select="exslt:node-set($authors_root)/authors/author">
+                  <a href="#">
+                    <xsl:value-of select="prename"/>
+                    <xsl:text> </xsl:text>
+                    <xsl:value-of select="surname"/>
+                  </a>
+                  <xsl:if test="position()!=last()">
+                    <xsl:text>, </xsl:text>
+                  </xsl:if>
                 </xsl:for-each>
               </span>
-
               <br />
               <img src="http://www.aber-glaube.net/blog/wp-content/themes/theorem_deutsch/images/icons/gif/folder_page_home.gif" alt="Filed To" />
               <span class="filedto">
@@ -104,7 +102,7 @@
       </xsl:for-each>
     </ul>
   </xsl:template>
-  
+
   <xsl:template name="print_authors_list">
     <ul>
       <xsl:for-each select="document('authors.xml')/authors/author">
@@ -187,7 +185,7 @@
 
             <xsl:call-template name="print_articles" />
 
-            <div class="entry-archive">
+            <!--<div class="entry-archive">
               <div class="entrytitle">
                 <h2>
                   <a href="http://www.aber-glaube.net/blog/?p=9" rel="bookmark" title="Permanent Link to Neuer Testbeitrag">Neuer Testbeitrag</a>
@@ -295,7 +293,7 @@
                   <p>&#xA0;</p>
                 </div>
               </div>
-            </div>
+            </div>-->
             <div class="navigation">
               <div class="alignleft"></div>
               <div class="alignright"></div>
