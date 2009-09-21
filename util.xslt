@@ -80,19 +80,35 @@
     </authors>
   </xsl:template>
 
-  <!-- Generates an author name from author id -->
-  <!--<xsl:template name="format-author">
-    <xsl:param name="author-id"/>
-    <xsl:param name="authors"/>
+  <xsl:template name="show_all_articles_of_author_a">
+    <xsl:param name="prename"/>
+    <xsl:param name="surname"/>
+    <xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
+      <xsl:attribute name="href">#</xsl:attribute>
+      <xsl:attribute name="title">
+        <xsl:text>Alle Artikel von </xsl:text>
+        <xsl:value-of select="$prename"/>
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="$surname"/>
+        <xsl:text> anzeigen</xsl:text>
+      </xsl:attribute>
+      <xsl:value-of select="$prename"/>
+      <xsl:text> </xsl:text>
+      <xsl:value-of select="$surname"/>
+    </xsl:element>
+  </xsl:template>
 
-    <xsl:for-each select="document('authors.xml')/authors/author">
-      <xsl:if test="@id=$author-id">
-        <a href="#">
-          <xsl:value-of select="prename"/>
-          <xsl:text> </xsl:text>
-          <xsl:value-of select="surname"/>
-        </a>
-      </xsl:if>
-    </xsl:for-each>
-  </xsl:template>-->
+  <xsl:template name="show_all_articles_of_category_a">
+    <xsl:param name="category"/>
+
+    <xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
+      <xsl:attribute name="href">#</xsl:attribute>
+      <xsl:attribute name="title">
+        <xsl:text>Alle in '</xsl:text>
+        <xsl:value-of select="$category"/>
+        <xsl:text>' gespeicherten Artikel anzeigen</xsl:text>
+      </xsl:attribute>
+      <xsl:value-of select="$category"/>
+    </xsl:element>
+  </xsl:template>
 </xsl:stylesheet>

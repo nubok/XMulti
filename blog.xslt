@@ -40,11 +40,7 @@
         </h3>
         <!-- Print article content -->
         <div class="entrybody">
-          <xsl:for-each select="content/p">
-            <p>
-              <xsl:apply-templates mode="html"/>
-            </p>
-          </xsl:for-each>
+          <xsl:apply-templates mode="html" select="content/*"/>
         </div>
         <div class="entrymeta">
           <div class="postinfo">
@@ -59,11 +55,10 @@
                   </xsl:call-template>
                 </xsl:variable>
                 <xsl:for-each select="exslt:node-set($authors_root)/authors/author">
-                  <a href="#">
-                    <xsl:value-of select="prename"/>
-                    <xsl:text> </xsl:text>
-                    <xsl:value-of select="surname"/>
-                  </a>
+                  <xsl:call-template name="show_all_articles_of_author_a">
+                    <xsl:with-param name="prename" select="prename"/>
+                    <xsl:with-param name="surname" select="surname"/>
+                  </xsl:call-template>
                   <xsl:if test="position()!=last()">
                     <xsl:text>, </xsl:text>
                   </xsl:if>
@@ -73,7 +68,19 @@
               <img src="http://www.aber-glaube.net/blog/wp-content/themes/theorem_deutsch/images/icons/gif/folder_page_home.gif" alt="Filed To" />
               <span class="filedto">
                 Abgelegt unter
-                <a href="http://www.aber-glaube.net/blog/?cat=1" title="Alle Artikel in :: Internes anzeigen" rel="category">:: Internes</a>,  <a href="http://www.aber-glaube.net/blog/?cat=5" title="Alle Artikel in :: für Pädagogen anzeigen" rel="category">:: für Pädagogen</a>,  <a href="http://www.aber-glaube.net/blog/?cat=6" title="Alle Artikel in :: für Unternehmer anzeigen" rel="category">:: für Unternehmer</a>
+                <xsl:variable name="categories_root">
+                  <xsl:call-template name="categories-from-article">
+                    <xsl:with-param name="categories" select="."/>
+                  </xsl:call-template>
+                </xsl:variable>
+                <xsl:for-each select="exslt:node-set($categories_root)/categories/category">
+                  <xsl:call-template name="show_all_articles_of_category_a">
+                    <xsl:with-param name="category" select="."/>
+                  </xsl:call-template>
+                  <xsl:if test="position()!=last()">
+                    <xsl:text>, </xsl:text>
+                  </xsl:if>
+                </xsl:for-each>
               </span>
             </p>
             <p>&#xA0;</p>
@@ -89,14 +96,9 @@
         <xsl:sort select="."/>
         <!-- For current current category add 'current-cat' after 'cat-item' -->
         <li class="cat-item">
-          <a href="#">
-            <xsl:attribute name="title">
-              <xsl:text>Alle in '</xsl:text>
-              <xsl:value-of select="." />
-              <xsl:text>' gespeicherten Artikel anzeigen</xsl:text>
-            </xsl:attribute>
-            <xsl:value-of select="." />
-          </a>
+          <xsl:call-template name="show_all_articles_of_category_a">
+            <xsl:with-param name="category" select="."/>
+          </xsl:call-template>
           <xsl:text> (</xsl:text>69<xsl:text>)</xsl:text>
         </li>
       </xsl:for-each>
@@ -109,18 +111,10 @@
         <xsl:sort select="surname"/>
         <xsl:sort select="prename"/>
         <li>
-          <a href="#">
-            <xsl:attribute name="title">
-              <xsl:text>Alle Beiträge von '</xsl:text>
-              <xsl:value-of select="prename" />
-              <xsl:text> </xsl:text>
-              <xsl:value-of select="surname" />
-              <xsl:text>' anzeigen</xsl:text>
-            </xsl:attribute>
-            <xsl:value-of select="prename" />
-            <xsl:text> </xsl:text>
-            <xsl:value-of select="surname" />
-          </a>
+          <xsl:call-template name="show_all_articles_of_author_a">
+            <xsl:with-param name="prename" select="prename"/>
+            <xsl:with-param name="surname" select="surname"/>
+          </xsl:call-template>
           <xsl:text> (</xsl:text>42<xsl:text>)</xsl:text>
         </li>
       </xsl:for-each>
