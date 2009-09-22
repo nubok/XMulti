@@ -10,7 +10,7 @@
   </xsl:template>
 
   <xsl:template match="p/a/@href" mode="html">
-    <xsl:copy />
+    <xsl:copy/>
   </xsl:template>
 
   <!-- Links in paragraph in article -->

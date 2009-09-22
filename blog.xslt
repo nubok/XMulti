@@ -5,7 +5,7 @@
                 xmlns:exslt="http://exslt.org/common"
                 xmlns:msxsl="urn:schemas-microsoft-com:xslt"
                 exclude-result-prefixes="exslt msxsl">
-  <xsl:output method="xml" indent="yes" omit-xml-declaration="yes" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" />
+  <xsl:output method="xml" indent="yes" omit-xml-declaration="yes" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
   <xsl:include href="header_footer.xslt"/>
   <xsl:include href="blog_head_area.xslt"/>
   <xsl:include href="util.xslt"/>
@@ -51,8 +51,8 @@
               <span class="postedby">
                 <xsl:text>Eingetragen von </xsl:text>
                 <xsl:variable name="authors_root">
-                  <xsl:call-template name="authors-from-article">
-                    <xsl:with-param name="authors" select="."/>
+                  <xsl:call-template name="author-names-from-author-ids">
+                    <xsl:with-param name="authors-ids" select="."/>
                   </xsl:call-template>
                 </xsl:variable>
                 <xsl:for-each select="exslt:node-set($authors_root)/authors/author">
@@ -70,8 +70,8 @@
               <span class="filedto">
                 <xsl:text>Abgelegt unter </xsl:text>
                 <xsl:variable name="categories_root">
-                  <xsl:call-template name="categories-from-article">
-                    <xsl:with-param name="categories" select="."/>
+                  <xsl:call-template name="category-names-from-category-ids">
+                    <xsl:with-param name="category-ids" select="."/>
                   </xsl:call-template>
                 </xsl:variable>
                 <xsl:for-each select="exslt:node-set($categories_root)/categories/category">
@@ -95,13 +95,23 @@
     <ul>
       <xsl:for-each select="document('categories.xml')/categories/category">
         <xsl:sort select="."/>
-        <!-- For current current category add 'current-cat' after 'cat-item' -->
-        <li class="cat-item">
-          <xsl:call-template name="show_all_articles_of_category_a">
-            <xsl:with-param name="category" select="."/>
+        <xsl:variable name="articles-of-category">
+          <xsl:call-template name="articles-from-category-id">
+            <xsl:with-param name="category-id" select="@id"/>
           </xsl:call-template>
-          <xsl:text> (</xsl:text>69<xsl:text>)</xsl:text>
-        </li>
+        </xsl:variable>
+        <xsl:variable name="article-count" select="count(exslt:node-set($articles-of-category)/articles/article)"/>
+        <xsl:if test="$article-count>0">
+          <!-- For current current category add 'current-cat' after 'cat-item' -->
+          <li class="cat-item">
+            <xsl:call-template name="show_all_articles_of_category_a">
+              <xsl:with-param name="category" select="."/>
+            </xsl:call-template>
+            <xsl:text> (</xsl:text>
+            <xsl:value-of select="$article-count"/>
+            <xsl:text>)</xsl:text>
+          </li>
+        </xsl:if>
       </xsl:for-each>
     </ul>
   </xsl:template>
@@ -111,13 +121,23 @@
       <xsl:for-each select="document('authors.xml')/authors/author">
         <xsl:sort select="surname"/>
         <xsl:sort select="prename"/>
-        <li>
-          <xsl:call-template name="show_all_articles_of_author_a">
-            <xsl:with-param name="prename" select="prename"/>
-            <xsl:with-param name="surname" select="surname"/>
+        <xsl:variable name="articles-of-author">
+          <xsl:call-template name="articles-from-author-id">
+            <xsl:with-param name="author-id" select="@id"/>
           </xsl:call-template>
-          <xsl:text> (</xsl:text>42<xsl:text>)</xsl:text>
-        </li>
+        </xsl:variable>
+        <xsl:variable name="article-count" select="count(exslt:node-set($articles-of-author)/articles/article)"/>
+        <xsl:if test="$article-count>0">
+          <li>
+            <xsl:call-template name="show_all_articles_of_author_a">
+              <xsl:with-param name="prename" select="prename"/>
+              <xsl:with-param name="surname" select="surname"/>
+            </xsl:call-template>
+            <xsl:text> (</xsl:text>
+            <xsl:value-of select="$article-count"/>
+            <xsl:text>)</xsl:text>
+          </li>
+        </xsl:if>
       </xsl:for-each>
     </ul>
   </xsl:template>
@@ -143,7 +163,7 @@
         </title>
       </head>
       <body>
-        <xsl:call-template name="header" />
+        <xsl:call-template name="header"/>
         <div id="page">
           <div id="wrap">
             <div id="sidebar">
@@ -170,16 +190,14 @@
             </div>
           </div>
           <div id="content">
-            <div class="archivetitle">
+            <!--<div class="archivetitle">
               <h2>Archiv ':: Internes'</h2>
-            </div>
+            </div>-->
             <div class="navigation">
               <div class="alignleft"></div>
               <div class="alignright"></div>
             </div>
-
             <xsl:call-template name="print_articles" />
-            
             <div class="navigation">
               <div class="alignleft"></div>
               <div class="alignright"></div>

@@ -18,9 +18,7 @@
   </xsl:template>
 
   <xsl:template name="header">
-    <xsl:variable name="foo" select="document('header_footer.xml')"/>
-    
-    <xsl:for-each select="$foo/hf:header-footer/hf:header">
+    <xsl:for-each select="document('header_footer.xml')/hf:header-footer/hf:header">
       <xsl:apply-templates mode="header-footer"/>
     </xsl:for-each>
   </xsl:template>

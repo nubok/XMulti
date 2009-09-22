@@ -27,8 +27,8 @@
     <xsl:value-of select="$year"/>
   </xsl:template>
 
-  <xsl:template name="categories-from-article">
-    <xsl:param name="categories"/>
+  <xsl:template name="category-names-from-category-ids">
+    <xsl:param name="category-ids"/>
 
     <categories>
       <xsl:for-each select="document('categories.xml')/categories/category">
@@ -36,7 +36,7 @@
 
         <xsl:variable name="act_category" select="."/>
 
-        <xsl:for-each select="$categories/categories/category">
+        <xsl:for-each select="$category-ids/categories/category">
           <xsl:if test="@id=$act_category/@id">
             <category>
               <xsl:attribute name="id">
@@ -52,8 +52,8 @@
     </categories>
   </xsl:template>
 
-  <xsl:template name="authors-from-article">
-    <xsl:param name="authors"/>
+  <xsl:template name="author-names-from-author-ids">
+    <xsl:param name="authors-ids"/>
 
     <authors>
       <xsl:for-each select="document('authors.xml')/authors/author">
@@ -62,7 +62,7 @@
 
         <xsl:variable name="act_author" select="."/>
 
-        <xsl:for-each select="$authors/authors/author">
+        <xsl:for-each select="$authors-ids/authors/author">
           <xsl:if test="@id=$act_author/@id">
             <author>
               <xsl:attribute name="id">
@@ -79,6 +79,40 @@
         </xsl:for-each>
       </xsl:for-each>
     </authors>
+  </xsl:template>
+
+  <xsl:template name="articles-from-category-id">
+    <xsl:param name="category-id"/>
+
+    <articles>
+      <xsl:for-each select="document('articles.xml')/articles/article">
+        <xsl:variable name="act-category">
+          <xsl:copy-of select="."/>
+        </xsl:variable>
+        <xsl:for-each select="categories/category">
+          <xsl:if test="@id=$category-id">
+            <xsl:copy-of select="$act-category"/>
+          </xsl:if>
+        </xsl:for-each>
+      </xsl:for-each>
+    </articles>
+  </xsl:template>
+
+  <xsl:template name="articles-from-author-id">
+    <xsl:param name="author-id"/>
+
+    <articles>
+      <xsl:for-each select="document('articles.xml')/articles/article">
+        <xsl:variable name="act-article">
+          <xsl:copy-of select="."/>
+        </xsl:variable>
+        <xsl:for-each select="authors/author">
+          <xsl:if test="@id=$author-id">
+            <xsl:copy-of select="$act-article"/>
+          </xsl:if>
+        </xsl:for-each>
+      </xsl:for-each>
+    </articles>
   </xsl:template>
 
   <xsl:template name="show_all_articles_of_author_a">
