@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+<xsl:stylesheet version="1.0"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:exslt="http://exslt.org/common"
                 xmlns:msxsl="urn:schemas-microsoft-com:xslt"
@@ -48,7 +49,7 @@
               <img src="http://www.aber-glaube.net/blog/wp-content/themes/theorem_deutsch/images/icons/gif/user_edit_home.gif" alt="Eingetragen von" />
               <!-- Print the names of the authors -->
               <span class="postedby">
-                Eingetragen von
+                <xsl:text>Eingetragen von </xsl:text>
                 <xsl:variable name="authors_root">
                   <xsl:call-template name="authors-from-article">
                     <xsl:with-param name="authors" select="."/>
@@ -67,7 +68,7 @@
               <br />
               <img src="http://www.aber-glaube.net/blog/wp-content/themes/theorem_deutsch/images/icons/gif/folder_page_home.gif" alt="Filed To" />
               <span class="filedto">
-                Abgelegt unter
+                <xsl:text>Abgelegt unter </xsl:text>
                 <xsl:variable name="categories_root">
                   <xsl:call-template name="categories-from-article">
                     <xsl:with-param name="categories" select="."/>
@@ -178,116 +179,7 @@
             </div>
 
             <xsl:call-template name="print_articles" />
-
-            <!--<div class="entry-archive">
-              <div class="entrytitle">
-                <h2>
-                  <a href="http://www.aber-glaube.net/blog/?p=9" rel="bookmark" title="Permanent Link to Neuer Testbeitrag">Neuer Testbeitrag</a>
-                </h2>
-              </div>
-
-              <h3>30. Mai 2009</h3>
-
-              <div class="entrybody">
-                <p>Dies ist ein zweiter Testbeitrag</p>
-              </div>
-              <div class="entrymeta">
-                <div class="postinfo">
-
-                  <p>
-                    <img src="http://www.aber-glaube.net/blog/wp-content/themes/theorem_deutsch/images/icons/gif/user_edit_home.gif" alt="Eingetragen von" />
-                    <span class="postedby">
-                      Eingetragen von
-                      admin
-                    </span>
-
-                    <br />
-                    <img src="http://www.aber-glaube.net/blog/wp-content/themes/theorem_deutsch/images/icons/gif/folder_page_home.gif" alt="Filed To" />
-                    <span class="filedto">
-                      Abgelegt unter:
-                      <a href="http://www.aber-glaube.net/blog/?cat=1" title="Alle Artikel in :: Internes anzeigen" rel="category">:: Internes</a>,  <a href="http://www.aber-glaube.net/blog/?cat=5" title="Alle Artikel in :: für Pädagogen anzeigen" rel="category">:: für Pädagogen</a>,  <a href="http://www.aber-glaube.net/blog/?cat=6" title="Alle Artikel in :: für Unternehmer anzeigen" rel="category">:: für Unternehmer</a>
-                    </span>
-                  </p>
-                  <p>&#xA0;</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="entry-archive">
-              <div class="entrytitle">
-                <h2>
-                  <a href="http://www.aber-glaube.net/blog/?p=3" rel="bookmark" title="Permanent Link to Test">Test</a>
-                </h2>
-              </div>
-              <h3>18. Oktober 2008</h3>
-
-              <div class="entrybody">
-                <p>Sehr geehrter Besucher,</p>
-
-                <p>Hier entsteht in enger Zusammenarbeit mit Behörden, Parteien, Religionsgemeinschaften und privaten Organisationen das Internet-Portal für „Sekten“ -Aussteiger, -Betroffene, Pädagogen und Unternehmrer in Deutschland, Österreich und der Schweiz.</p>
-                <p>Bitte haben Sie Verständnis, dass bedingt durch die Fülle an Informationen und Recherchen noch kein funktionierender Web-Auftritt möglich ist.</p>
-                <p>
-                  Alle Inhalte, die in der nächsten Zeit hier zu finden sind, dienen vorerst nur zu Testzwecken. Interessierte können sich jedoch schon jetzt über unser <a href="../../kontaktformular.html">Kontaktformular</a> an uns wenden.
-                </p>
-                <p>Ihr Aber-Glaube Team</p>
-              </div>
-              <div class="entrymeta">
-                <div class="postinfo">
-
-                  <p>
-                    <img src="http://www.aber-glaube.net/blog/wp-content/themes/theorem_deutsch/images/icons/gif/user_edit_home.gif" alt="Eingetragen von" />
-                    <span class="postedby">
-                      Eingetragen von
-                      admin
-                    </span>
-
-
-                    <br />
-                    <img src="http://www.aber-glaube.net/blog/wp-content/themes/theorem_deutsch/images/icons/gif/folder_page_home.gif" alt="Filed To" />
-                    <span class="filedto">
-                      Abgelegt unter:
-                      <a href="http://www.aber-glaube.net/blog/?cat=1" title="Alle Artikel in :: Internes anzeigen" rel="category">:: Internes</a>
-                    </span>
-
-                  </p>
-                  <p>&#xA0;</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="entry-archive">
-              <div class="entrytitle">
-                <h2>
-                  <a href="http://www.aber-glaube.net/blog/?p=1" rel="bookmark" title="Permanent Link to Herzlich Willkommen!">Herzlich Willkommen!</a>
-                </h2>
-              </div>
-
-              <h3>4. Oktober 2008</h3>
-
-              <div class="entrybody">
-                <p>Willkommen bei WordPress. Dies ist Ihr erster Beitrag. Bearbeiten oder löschen Sie Ihn, und fangen Sie dann mit dem Bloggen an!</p>
-              </div>
-              <div class="entrymeta">
-                <div class="postinfo">
-
-                  <p>
-                    <img src="http://www.aber-glaube.net/blog/wp-content/themes/theorem_deutsch/images/icons/gif/user_edit_home.gif" alt="Eingetragen von" />
-                    <span class="postedby">
-                      Eingetragen von
-                      admin
-                    </span>
-
-                    <br />
-                    <img src="http://www.aber-glaube.net/blog/wp-content/themes/theorem_deutsch/images/icons/gif/folder_page_home.gif" alt="Filed To" />
-                    <span class="filedto">
-                      Abgelegt unter:
-                      <a href="http://www.aber-glaube.net/blog/?cat=1" title="Alle Artikel in :: Internes anzeigen" rel="category">:: Internes</a>
-                    </span>
-                  </p>
-                  <p>&#xA0;</p>
-                </div>
-              </div>
-            </div>-->
+            
             <div class="navigation">
               <div class="alignleft"></div>
               <div class="alignright"></div>
