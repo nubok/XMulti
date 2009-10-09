@@ -46,7 +46,7 @@
         <div class="entrymeta">
           <div class="postinfo">
             <p>
-              <img src="http://www.aber-glaube.net/blog/wp-content/themes/theorem_deutsch/images/icons/gif/user_edit_home.gif" alt="Eingetragen von" />
+              <img src="themes/theorem_deutsch/images/icons/gif/user_edit_home.gif" alt="Eingetragen von" />
               <!-- Print the names of the authors -->
               <span class="postedby">
                 <xsl:text>Eingetragen von </xsl:text>
@@ -66,7 +66,7 @@
                 </xsl:for-each>
               </span>
               <br />
-              <img src="http://www.aber-glaube.net/blog/wp-content/themes/theorem_deutsch/images/icons/gif/folder_page_home.gif" alt="Filed To" />
+              <img src="themes/theorem_deutsch/images/icons/gif/folder_page_home.gif" alt="Filed To" />
               <span class="filedto">
                 <xsl:text>Abgelegt unter </xsl:text>
                 <xsl:variable name="categories_root">

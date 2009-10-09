@@ -1,0 +1,436 @@
+/*  
+Theme Name: Theorem
+Theme URI: http://obeattie.com/themes/theorem/
+Description: Pure sorcery in blogging. Dark and content-focused, the theme is filled with dark magic and witchcraft. ;)
+Version: 1.0.3
+Author: Oliver Beattie
+Author URI: http://obeattie.com/
+*/
+
+/*************************************
+           Containers
+ *************************************/
+body {
+	font: 13px Georgia, "Times New Roman", Times, serif; 
+	background:#333;
+	color: #000; /*#69af6e;*/ /* Changed by WK */
+	/*text-align:right;*/ /* Changed by WK */
+	margin:2em 0em 0em 0em;
+}
+#wrap{
+	margin:0 auto;
+	text-align:left;
+	width:750px;
+}
+#content{
+	font-size:1.2em;
+	float:left;
+	padding:0;
+	width:450px;
+	margin:0 0 0 10px;
+}
+#sidebar{
+	font-size:1.1em;
+	float:left;
+	padding:0 12px 0 0;
+	width:240px;
+	border-right:2px solid #69af6e;
+	margin-bottom:10px;
+	display:block;
+}
+.sidebar_gap{
+	padding:0 12px 10px 0;
+	width:240px;
+	border-right:2px solid #333;
+	margin:10px 0 0 0;
+}
+#header{
+	padding:3em 1em;
+}
+#footer{
+	background:#333;
+	color:#888;
+	clear:both;
+	font-size:0.9em;
+	text-align:center;
+	margin:10px 0 0 0;
+	padding:3px 0 7px 0;
+	border-top:1px solid #FFF;
+}
+/*************************************
+              Headings
+ *************************************/
+h1, h2, h3{
+	font-family: Birka, Georgia, "Times New Roman", Times, serif;
+	font-weight:normal;
+	margin:0;
+}
+.entrytitle h2{
+	font-size:2.2em;
+	color:#fff;
+}
+.entrytitle h2 a:hover{
+	color:#333;
+	background-color:#FFF;
+}
+.entrytitle h3{
+	font-size:1.8em;
+	color:#6F6F6F;
+}
+.archivetitle h2{
+	font-size:2.2em;
+	color:#69af6e;
+}
+#sidebar h3{
+	color:#555;
+	font-size:1.5em;
+	margin:1em 0;
+}
+#sidebar h2 a{
+	color:#69af6e;
+	background:#333;
+	text-decoration:underline;
+}
+#sidebar h2 a:hover{
+	color:#333;
+	background-color:#fff;
+}
+h4{
+	font-size:15px;
+	padding:0;
+	margin:0;
+}
+/*************************************
+         The Actual Entry
+ *************************************/
+.home .entry, .entry-archive, .home .entry-fresh{
+	margin:0 0 10px 0;
+	padding:3px 7px 7px 7px;
+}
+.home .entry, .entry-archive{
+	background: #FFF; /*#565656;*/ /* Changed by Wolfgang Keller */
+}
+.home .entry, .home .entry-fresh{
+	width:444px;
+}
+.entry_single {
+	background:#333;
+	padding:3px 7px 7px 7px;
+	margin:0 0 5px 0;
+}
+
+.entrymeta{
+	font-size:0.9em;
+	line-height:1.5em;
+	clear:both;
+}
+.postinfo_single {
+	line-height:1.5em;
+	background-color:#69af6e;
+	border:1px dotted #333;
+	padding:0 3px 3px 3px;
+	color:#FFF;
+	margin:0 0 5px 0;
+}
+.home .entry .postinfo{
+	background-color:#565656;
+	border:none;
+	margin:0;
+}
+.home .entry-fresh .postinfo{
+	background:#a0b5b2;
+}
+.home .entry img, .entry_single img, .page_single img, .entry-archive img, .home .entry-fresh img{
+	padding:5px;
+	border-width:1px;
+	border-style:solid;
+	border-color:#fff;
+	margin:3px;
+}
+.home .entry img .wp_smiley, .entry_single img .wp_smiley,.home .entry-fresh .wp-smiley, .home .entry-fresh .fresh_badge{
+	padding:0;
+	margin:0;
+	border:none;
+}
+
+.home .entry .entrybody a, .home .entry-fresh .entrybody a{
+	color:#FFF;
+}
+
+.entry_single .entrybody a{
+	color:#FFF;
+}
+.entry_single .entrybody{
+	padding:5px 0 0 0;
+}
+
+.home .entry .entrybody a:hover,.home .entry-fresh .entrybody a:hover{
+	color:#333;
+	background-color:#FFF;
+}
+
+.entry_single .entrybody a:hover{
+	color:#565565;
+	background-color:#FFF;
+}
+blockquote{
+	background:url(./images/blockquote_normal.gif) top left no-repeat;
+	margin:0px;
+	padding:0 0 0 27px;
+	color:#57865f;
+	font-style:italic;
+}
+.home * blockquote, .entry-archive blockquote{
+	background:url(./images/blockquote_home.gif) top left no-repeat;
+}
+
+.entrymeta .postinfo img {
+	margin:0 5px 0 0;
+	padding:0;
+	border:none;
+}
+.entrymeta .postinfo .postedby, .entrymeta .postinfo .filedto, .entrymeta .postinfo .commentslink{
+	margin:0 5px 0 0;
+}
+.entry_single .calendardatetime{
+	background:#fff;
+	color:#333;
+	height:61px;
+	width:65px;
+	float:right;
+	border:1px solid #69af6e;
+	text-align:center;
+	margin:5px 5px 5px 0;
+}
+.entry_single .calendardatetime .month{
+	display:block;
+	font-size:13px;
+	padding:0 2px 0 2px;
+}
+.entry_single .calendardatetime .date{
+	display:block;
+	font-size:23px;
+	padding:0 2px 0 2px;
+	font-weight:bold;
+}
+.entry_single .calendardatetime .time{
+	display:block;
+	font-size:13px;
+	padding:0 2px 0 2px;
+}
+.postedby, .filedto, .commentslink,.editpost{
+	margin:0 2px 0 2px;
+}
+.editpost{
+	font-weight:bold;
+}
+.fresh_badge{
+	float:right;
+	clear:none;
+	margin:3px;
+}
+.home .entry-fresh blockquote{
+	background:url(./images/blockquote_fresh.gif) no-repeat;
+}
+/*************************************
+           Single Page
+ *************************************/
+.page_single {
+	margin-bottom:10px;
+	padding:3px 7px 7px 7px;
+}
+.page_single .pagebody a:hover{
+	color:#565565;
+	background-color:#FFF;
+}
+.page_single .pagebody a{
+	color:#FFF;
+}
+.pagemeta{
+	font-size:0.9em;
+}
+.pagetitle h2{
+	font-size:2.2em;
+}
+.pagetitle h2 a
+{
+	color:#FFF;
+}
+.pagetitle h2 a:hover{
+	color:#333;
+	background-color:#FFF;
+}
+.pagetitle h3{
+	font-size:1.8em;
+	color:#6F6F6F;
+}
+
+/*************************************
+            The Sidebar
+ *************************************/
+#sidebar ul{
+	list-style: none; 
+	margin:0;
+	padding:0;
+}
+#sidebar ul li{
+	border-bottom:1px dotted #ddd;
+	padding-bottom:2px;
+	margin-bottom:3px;
+}
+/*************************************
+              Comments
+ *************************************/
+.commentsblock{
+	margin:0 0 10px 0;
+	padding:2px 15px 2px 15px;
+	background-color:#565656;
+}
+.commentsblock textarea{
+	width:390px;
+}
+.commentsblock input, .commentsblock textarea{
+	border:1px solid #d1d1d1;
+}
+.commentsblock textarea:focus{
+	background:#eee;
+	border:1px solid #a1a1a1;
+}
+.commentsblock textarea:focus, .commentsblock input:focus{
+	background:#eee;
+	border:1px solid #a1a1a1;
+}
+.commentauthor{
+	display:block;
+	font-size:1.5em;
+}
+ul.commentlist{
+	list-style: none; 
+	color:#FFF;
+	font-size:0.9em;
+	margin:10px 0 10px 0;
+	padding:0;
+}
+.commentlist li{
+	margin:0.1em 0 0 0;
+	padding:1em;
+}
+.commentlist li p{
+	padding:0;
+	margin:0;
+	color:#69af6e;
+}
+.commentlist li .editlink a{
+	color:#333;
+	background-color:#fff;
+	padding:0 3px 0 3px;
+}
+.commentlist li .editlink a:hover{
+	color:#fff;
+	background-color:#69af6e;
+}
+.alt{
+	background:#333;
+	border:1px dotted #d1d1d1;
+	padding:0.5em;
+	color:#777;
+}
+h3 #comments{
+	font-size:1.6em;
+}
+
+/*************************************
+             Miscellanious
+ *************************************/
+a{
+	color:#000; /* Changed by Wolfgang */
+	text-decoration:none;
+}
+a:hover{
+	color:#333;
+	background-color:#FFF;
+}
+img{
+	border:none;
+}
+img a{
+	border:none;
+}
+.ads{
+	margin-top:20px;
+	border-top:2px solid #fff;
+	padding-top:20px;
+	text-align:center;
+}
+.errormessage{
+	padding-top:160px;
+	background:url(./images/error_emblem.gif) top center no-repeat;
+}
+#sidebar .breaker{
+	padding:10px 0 0 0;
+	margin:0 0 10px 0;
+	border-bottom:1px solid #fff;
+}
+.navigation{
+	margin:0 0 10px 0;
+}
+.user_posts h4{
+	font-size:1em;
+	margin:0;
+	padding:0;
+}
+.user_posts h2{
+	margin:0 0 10px 0;
+}
+.user_posts .entry{
+	background:#565656;
+	margin-bottom:10px;
+	padding:5px;
+}
+#sidebar #searchform #s{
+	width:234px;
+	background:#333;
+	border:1px solid #fff;
+	color:#fff;
+}
+#sidebar #searchform #s:focus{
+	background:#69af6e;
+	color:#fff;
+}
+#sidebar .align_right{
+	margin:0 auto;
+	width:100%;
+}
+.lastfmcover{
+	width:109px;
+	height:109px;
+	margin:3px;
+}
+.gravatar{
+	float:left;
+	padding:1px;
+	border:1px solid #fff;
+	margin-right:10px;
+}
+.taggedas{
+	font-variant:small-caps;
+	padding:5px 0 5px 0;
+	line-height:15px;
+}
+.home .entry-fresh{
+	background:#a0b5b2;
+	color:#fff;
+}
+#taginput{
+	padding:0 5px 0 5px;
+}
+#taginput input{
+	background:#333;
+	color:#fff;
+	border:1px solid #69af6e;
+}
+#taginput input:focus{
+	background:#69af63;
+	color:#333;
+	border:1px solid #fff;
+}
