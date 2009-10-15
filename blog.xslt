@@ -6,11 +6,11 @@
                 xmlns:msxsl="urn:schemas-microsoft-com:xslt"
                 exclude-result-prefixes="exslt msxsl">
   <xsl:output method="xml" indent="yes" omit-xml-declaration="yes" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
+  <!--<xsl:include href="ie.xslt"/>-->
   <xsl:include href="header_footer.xslt"/>
   <xsl:include href="blog_head_area.xslt"/>
-  <xsl:include href="util.xslt"/>
+  <xsl:include href="blog_article.xslt"/>
   <xsl:include href="html.xslt"/>
-  <!--<xsl:include href="ie.xslt"/>-->
 
   <!-- Print the articles -->
   <xsl:template name="print_articles">
@@ -22,72 +22,8 @@
       <xsl:sort order="descending" select="creation_timestamp/@hours" data-type="number" />
       <xsl:sort order="descending" select="creation_timestamp/@minutes" data-type="number" />
       <xsl:sort order="descending" select="creation_timestamp/@seconds" data-type="number" />
-      <div class="entry-archive">
-        <!-- Print title of article -->
-        <div class="entrytitle">
-          <h2>
-            <a href="#">
-              <xsl:value-of select="title"/>
-            </a>
-          </h2>
-        </div>
-        <!-- Print date of creation -->
-        <h3>
-          <xsl:call-template name="format-date">
-            <xsl:with-param name="year" select="creation_timestamp/@year"/>
-            <xsl:with-param name="month" select="creation_timestamp/@month"/>
-            <xsl:with-param name="day" select="creation_timestamp/@day"/>
-          </xsl:call-template>
-        </h3>
-        <!-- Print article content -->
-        <div class="entrybody">
-          <xsl:apply-templates mode="html" select="content/*"/>
-        </div>
-        <div class="entrymeta">
-          <div class="postinfo">
-            <p>
-              <img src="themes/theorem_deutsch/images/icons/gif/user_edit_home.gif" alt="Eingetragen von" />
-              <!-- Print the names of the authors -->
-              <span class="postedby">
-                <xsl:text>Eingetragen von </xsl:text>
-                <xsl:variable name="authors_root">
-                  <xsl:call-template name="author-names-from-author-ids">
-                    <xsl:with-param name="authors-ids" select="."/>
-                  </xsl:call-template>
-                </xsl:variable>
-                <xsl:for-each select="exslt:node-set($authors_root)/authors/author">
-                  <xsl:call-template name="show_all_articles_of_author_a">
-                    <xsl:with-param name="prename" select="prename"/>
-                    <xsl:with-param name="surname" select="surname"/>
-                  </xsl:call-template>
-                  <xsl:if test="position()!=last()">
-                    <xsl:text>, </xsl:text>
-                  </xsl:if>
-                </xsl:for-each>
-              </span>
-              <br />
-              <img src="themes/theorem_deutsch/images/icons/gif/folder_page_home.gif" alt="Filed To" />
-              <span class="filedto">
-                <xsl:text>Abgelegt unter </xsl:text>
-                <xsl:variable name="categories_root">
-                  <xsl:call-template name="category-names-from-category-ids">
-                    <xsl:with-param name="category-ids" select="."/>
-                  </xsl:call-template>
-                </xsl:variable>
-                <xsl:for-each select="exslt:node-set($categories_root)/categories/category">
-                  <xsl:call-template name="show_all_articles_of_category_a">
-                    <xsl:with-param name="category" select="."/>
-                  </xsl:call-template>
-                  <xsl:if test="position()!=last()">
-                    <xsl:text>, </xsl:text>
-                  </xsl:if>
-                </xsl:for-each>
-              </span>
-            </p>
-            <p>&#xA0;</p>
-          </div>
-        </div>
-      </div>
+
+      <xsl:call-template name="print-article"/>
     </xsl:for-each>
   </xsl:template>
 
@@ -158,6 +94,9 @@
           </xsl:attribute>
         </meta>
         <xsl:call-template name="head_area" />
+        <script type="text/javascript" src="scripts/dynamic_xslt.js">
+          <xsl:text> </xsl:text>
+        </script>
         <title>
           <xsl:value-of select="/page/title" />
         </title>
@@ -190,14 +129,13 @@
             </div>
           </div>
           <div id="content">
-            <!--<div class="archivetitle">
-              <h2>Archiv ':: Internes'</h2>
-            </div>-->
             <div class="navigation">
               <div class="alignleft"></div>
               <div class="alignright"></div>
             </div>
-            <xsl:call-template name="print_articles" />
+            <div id="articleContainerDiv">
+              <xsl:call-template name="print_articles"/>
+            </div>
             <div class="navigation">
               <div class="alignleft"></div>
               <div class="alignright"></div>
