@@ -9,23 +9,8 @@
   <!--<xsl:include href="ie.xslt"/>-->
   <xsl:include href="header_footer.xslt"/>
   <xsl:include href="blog_head_area.xslt"/>
-  <xsl:include href="blog_article.xslt"/>
+  <xsl:include href="blog_articles.xslt"/>
   <xsl:include href="html.xslt"/>
-
-  <!-- Print the articles -->
-  <xsl:template name="print_articles">
-    <xsl:for-each select="document('articles.xml')/articles/article">
-      <!-- Order articles by date and time -->
-      <xsl:sort order="descending" select="creation_timestamp/@year" data-type="number" />
-      <xsl:sort order="descending" select="creation_timestamp/@month" data-type="number" />
-      <xsl:sort order="descending" select="creation_timestamp/@day" data-type="number" />
-      <xsl:sort order="descending" select="creation_timestamp/@hours" data-type="number" />
-      <xsl:sort order="descending" select="creation_timestamp/@minutes" data-type="number" />
-      <xsl:sort order="descending" select="creation_timestamp/@seconds" data-type="number" />
-
-      <xsl:call-template name="print-article"/>
-    </xsl:for-each>
-  </xsl:template>
 
   <xsl:template name="print_categories_list">
     <ul>
@@ -107,7 +92,7 @@
           <div id="wrap">
             <div id="sidebar">
               <h2>Suche</h2>
-              <form method="get" id="searchform" action="http://www.aber-glaube.net/blog">
+              <form method="get" id="searchform" action="javascript:alert('Searching is not yet implemented.')">
                 <div>
                   <input type="text" name="s" id="s" />
                 </div>

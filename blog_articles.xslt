@@ -9,6 +9,25 @@
   
   <xsl:include href="util.xslt"/>
 
+  <xsl:template match="/">
+    <xsl:text>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</xsl:text>
+  </xsl:template>
+
+  <!-- Print the articles -->
+  <xsl:template name="print_articles">
+    <xsl:for-each select="document('articles.xml')/articles/article">
+      <!-- Order articles by date and time -->
+      <xsl:sort order="descending" select="creation_timestamp/@year" data-type="number" />
+      <xsl:sort order="descending" select="creation_timestamp/@month" data-type="number" />
+      <xsl:sort order="descending" select="creation_timestamp/@day" data-type="number" />
+      <xsl:sort order="descending" select="creation_timestamp/@hours" data-type="number" />
+      <xsl:sort order="descending" select="creation_timestamp/@minutes" data-type="number" />
+      <xsl:sort order="descending" select="creation_timestamp/@seconds" data-type="number" />
+
+      <xsl:call-template name="print-article"/>
+    </xsl:for-each>
+  </xsl:template>
+
   <xsl:template name="print-article">
     <div class="entry-archive">
       <!-- Print title of article -->
@@ -34,7 +53,7 @@
       <div class="entrymeta">
         <div class="postinfo">
           <p>
-            <img src="themes/theorem_deutsch/images/icons/gif/user_edit_home.gif" alt="Eingetragen von" />
+            <img src="themes/XMulti/images/User.png" class="icon" alt="Eingetragen von" />
             <!-- Print the names of the authors -->
             <span class="postedby">
               <xsl:text>Eingetragen von </xsl:text>
@@ -54,7 +73,7 @@
               </xsl:for-each>
             </span>
             <br />
-            <img src="themes/theorem_deutsch/images/icons/gif/folder_page_home.gif" alt="Filed To" />
+            <img src="themes/XMulti/images/Folder.png" class="icon" alt="Abgelegt unter" />
             <span class="filedto">
               <xsl:text>Abgelegt unter </xsl:text>
               <xsl:variable name="categories_root">
