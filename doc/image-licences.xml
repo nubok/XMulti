@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <file-licences>
   <folder src="themes/XMulti/images">
-    <files source="http://blog.iconspedia.com/icons/100-free-icons-weby-icon-set-192/">
+    <files src="http://blog.iconspedia.com/icons/100-free-icons-weby-icon-set-192/">
       <file src="Folder.png"/>
       <file src="User.png"/>
       <licence-information>
