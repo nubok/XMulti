@@ -29,3 +29,7 @@ function initXSLT() {
         target = document.getElementById("articleContainerDiv");
     }
 }
+
+function createContent(paramType, paramValue) {
+    alert("'" + paramType + "': '" + paramValue + "'");
+}

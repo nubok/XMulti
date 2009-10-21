@@ -12,6 +12,14 @@
   <xsl:include href="blog_articles.xslt"/>
   <xsl:include href="html.xslt"/>
 
+  <xsl:template name="print_pages_list">
+    <ul>
+      <li>
+        <xsl:call-template name="show_home_a"/>
+      </li>
+    </ul>
+  </xsl:template>
+
   <xsl:template name="print_categories_list">
     <ul>
       <xsl:for-each select="document('categories.xml')/categories/category">
@@ -26,6 +34,7 @@
           <!-- For current current category add 'current-cat' after 'cat-item' -->
           <li class="cat-item">
             <xsl:call-template name="show_all_articles_of_category_a">
+              <xsl:with-param name="id" select="@id"/>
               <xsl:with-param name="category" select="."/>
             </xsl:call-template>
             <xsl:text> (</xsl:text>
@@ -51,6 +60,7 @@
         <xsl:if test="$article-count>0">
           <li>
             <xsl:call-template name="show_all_articles_of_author_a">
+              <xsl:with-param name="id" select="@id"/>
               <xsl:with-param name="prename" select="prename"/>
               <xsl:with-param name="surname" select="surname"/>
             </xsl:call-template>
@@ -99,11 +109,7 @@
               </form>
               <br />
               <h2>Seiten</h2>
-              <ul>
-                <li>
-                  <a href="http://www.aber-glaube.net/blog/">Home</a>
-                </li>
-              </ul>
+              <xsl:call-template name="print_pages_list"/>
               <br />
               <h2>Kategorien</h2>
               <xsl:call-template name="print_categories_list" />
