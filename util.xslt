@@ -133,7 +133,7 @@
     <xsl:param name="surname"/>
     <xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
       <xsl:attribute name="href">
-        <xsl:text>javascript:createContent('article', '</xsl:text>
+        <xsl:text>javascript:createContent('author', '</xsl:text>
         <xsl:value-of select="$id"/>
         <xsl:text>');</xsl:text>
       </xsl:attribute>

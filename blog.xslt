@@ -10,7 +10,6 @@
   <xsl:include href="header_footer.xslt"/>
   <xsl:include href="blog_head_area.xslt"/>
   <xsl:include href="blog_articles.xslt"/>
-  <xsl:include href="html.xslt"/>
 
   <xsl:template name="print_pages_list">
     <ul>

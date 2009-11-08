@@ -5,12 +5,16 @@
                 xmlns:exslt="http://exslt.org/common"
                 xmlns:msxsl="urn:schemas-microsoft-com:xslt"
                 exclude-result-prefixes="exslt msxsl">
-  <xsl:output method="xml" indent="yes"/>
-  
+  <xsl:output method="xml" indent="yes" omit-xml-declaration="yes"/>
+
   <xsl:include href="util.xslt"/>
+  <xsl:include href="html.xslt"/>
+
+  <xsl:param name="type"/>
+  <xsl:param name="value"/>
 
   <xsl:template match="/">
-    <xsl:text>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</xsl:text>
+    <xsl:call-template name="print_articles"/>
   </xsl:template>
 
   <!-- Print the articles -->
@@ -24,11 +28,29 @@
       <xsl:sort order="descending" select="creation_timestamp/@minutes" data-type="number" />
       <xsl:sort order="descending" select="creation_timestamp/@seconds" data-type="number" />
 
-      <xsl:call-template name="print-article"/>
+      <xsl:choose>
+        <xsl:when test="$type=''">
+          <xsl:apply-templates mode="print-article" select="."/>
+        </xsl:when>
+        <xsl:when test="$type='category'">
+          <xsl:for-each select="categories/category">
+            <xsl:if test="@id=$value">
+              <xsl:apply-templates mode="print-article" select="../.."/>
+            </xsl:if>
+          </xsl:for-each>
+        </xsl:when>
+        <xsl:when test="$type='author'">
+          <xsl:for-each select="authors/author">
+            <xsl:if test="@id=$value">
+              <xsl:apply-templates mode="print-article" select="../.."/>
+            </xsl:if>
+          </xsl:for-each>
+        </xsl:when>
+      </xsl:choose>
     </xsl:for-each>
   </xsl:template>
 
-  <xsl:template name="print-article">
+  <xsl:template mode="print-article" match="*">
     <div class="entry-archive">
       <!-- Print title of article -->
       <div class="entrytitle">
