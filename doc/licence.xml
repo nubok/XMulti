@@ -1,5 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+﻿<?xml version="1.0" encoding="utf-8"?>
+<file-licences>
+  <folder src=".">
+    <files>
+      <file src="*.xml"/>
+      <file src="*.xslt"/>
+      <file src="*.xsd"/>
+      <licence-information>
+        <![CDATA[
 Copyright (c) 2009-2010, Wolfgang Keller
 All rights reserved.
 
@@ -10,15 +17,25 @@ Redistribution and use in source and binary forms, with or without modification,
     * Neither the name of the Wolfgang Keller nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->
-<xsl:stylesheet version="1.0"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:exslt="http://exslt.org/common"
-                xmlns:msxsl="urn:schemas-microsoft-com:xslt"
-                exclude-result-prefixes="exslt msxsl">
-  <msxsl:script implements-prefix="exslt" language="javascript">
-    this['node-set'] =  function (x) {
-    return x;
-    }
-  </msxsl:script>
-</xsl:stylesheet>
+	      ]]>
+      </licence-information>
+    </files>
+  </folder>
+  <folder src="themes/XMulti/images">
+    <files origin="http://blog.iconspedia.com/icons/100-free-icons-weby-icon-set-192/">
+      <file src="Folder.png"/>
+      <file src="User.png"/>
+      <licence-information>
+        <![CDATA[
+Title: Weby Icon Set
+
+Released by Iconspedia.com
+
+License:  You can use these icons on any personal or commercial projects as you want, as long as you DO NOT sell or  redistribute the icons. DO NOT Release Downloads on any other sites.
+
+© Copyright www.iconspedia.com 2009
+        ]]>
+      </licence-information>
+    </files>
+  </folder>
+</file-licences>
