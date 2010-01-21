@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="language.xsd">
+  <term id="authors">
+    <translation lang="de">Autoren</translation>
+    <translation lang="en">Authors</translation>
+  </term>
+  <term id="categories">
+    <translation lang="de">Kategorien</translation>
+    <translation lang="en">Categories</translation>
+  </term>
+  <term id="home">
+    <translation lang="de">Startseite</translation>
+    <translation lang="en">Home</translation>
+    <translation lang="fr">Accueil</translation>
+  </term>
+  <term id="pages">
+    <translation lang="de">Seiten</translation>
+    <translation lang="en">Pages</translation>
+  </term>
+  <term id="search">
+    <translation lang="de">Suche</translation>
+    <translation lang="en">Search</translation>
+  </term>
+</language>
