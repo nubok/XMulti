@@ -168,4 +168,8 @@
       <xsl:value-of select="$category"/>
     </xsl:element>
   </xsl:template>
+
+  <xsl:template name="body_onload">
+    <xsl:attribute name="onload">initXSLT();</xsl:attribute>
+  </xsl:template>
 </xsl:stylesheet>

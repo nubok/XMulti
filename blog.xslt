@@ -95,7 +95,8 @@
           <xsl:value-of select="/page/title" />
         </title>
       </head>
-      <body onload="initXSLT();">
+      <body>
+        <xsl:call-template name="body_onload"/>
         <xsl:call-template name="header"/>
         <div id="page">
           <div id="wrap">
