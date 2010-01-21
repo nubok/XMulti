@@ -122,15 +122,15 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                   <input type="text" name="s" id="s" />
                 </div>
               </form>
-              <br />
+              <br/>
               <h2>Seiten</h2>
               <xsl:call-template name="print_pages_list"/>
-              <br />
+              <br/>
               <h2>Kategorien</h2>
-              <xsl:call-template name="print_categories_list" />
-              <br />
+              <xsl:call-template name="print_categories_list"/>
+              <br/>
               <h2>Autoren</h2>
-              <xsl:call-template name="print_authors_list" />
+              <xsl:call-template name="print_authors_list"/>
               <br />
             </div>
           </div>
