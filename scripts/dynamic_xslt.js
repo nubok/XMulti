@@ -2,8 +2,8 @@ var platformMoz = (document.implementation && document.implementation.createDocu
 var platformIE = (!platformMoz && document.getElementById && window.ActiveXObject);
 var noXSLT = (!platformMoz && !platformIE);
 
-var cXmlUrl = 'blog.xml';
-var cXsltUrl = 'blog_articles.xslt';
+var xmlUrl = null;
+var xsltUrl = null;
 
 var targetDiv = null;
 
@@ -27,7 +27,10 @@ function getMsxmlDOM() {
     }
 }
 
-function initXSLT() {
+function initXSLT(paramXmlUrl, paramXsltUrl) {
+    xmlUrl = paramXmlUrl;
+    xsltUrl = paramXsltUrl;
+
     if (noXSLT) {
         alert("No XSLT processor found. Please use IE8 or Mozilla Firefox");
     }
@@ -49,9 +52,9 @@ function createContent(paramType, paramValue) {
                 docXslt.addEventListener('load', function() {
                     transform(paramType, paramValue);
                 }, false);
-                docXslt.load(cXsltUrl);
+                docXslt.load(xsltUrl);
             }, false);
-            docXml.load(cXmlUrl);
+            docXml.load(xmlUrl);
         }
         else {
             var xmlHttpXml = new window.XMLHttpRequest();
@@ -63,11 +66,11 @@ function createContent(paramType, paramValue) {
                             transform(paramType, paramValue);
                     } else {
                         alert('There was a problem retrieving file ' +
-                    cXmlUrl + '\n' + this.statusText);
+                    xmlUrl + '\n' + this.statusText);
                     }
                 }
             };
-            xmlHttpXml.open('GET', cXmlUrl, true);
+            xmlHttpXml.open('GET', xmlUrl, true);
             xmlHttpXml.send(null);
 
             var xmlHttpXslt = new window.XMLHttpRequest();
@@ -79,11 +82,11 @@ function createContent(paramType, paramValue) {
                             transform(paramType, paramValue);
                     } else {
                         alert('There was a problem retrieving file ' +
-                    cXsltUrl + '\n' + this.statusText);
+                    xsltUrl + '\n' + this.statusText);
                     }
                 }
             };
-            xmlHttpXslt.open('GET', cXsltUrl, true);
+            xmlHttpXslt.open('GET', xsltUrl, true);
             xmlHttpXslt.send(null);
         }
     }

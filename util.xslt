@@ -182,6 +182,14 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   </xsl:template>
 
   <xsl:template name="body_onload">
-    <xsl:attribute name="onload">initXSLT();</xsl:attribute>
+    <xsl:param name="xmlUrl"/>
+    <xsl:param name="xsltUrl"/>
+    <xsl:attribute name="onload">
+      <xsl:text>initXSLT('</xsl:text>
+      <xsl:value-of select="$xmlUrl"/>
+      <xsl:text>', '</xsl:text>
+      <xsl:value-of select="$xsltUrl"/>
+      <xsl:text>');</xsl:text>
+    </xsl:attribute>
   </xsl:template>
 </xsl:stylesheet>

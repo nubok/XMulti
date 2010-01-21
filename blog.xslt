@@ -108,7 +108,10 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
         </title>
       </head>
       <body>
-        <xsl:call-template name="body_onload"/>
+        <xsl:call-template name="body_onload">
+          <xsl:with-param name="xmlUrl">blog.xml</xsl:with-param>
+          <xsl:with-param name="xsltUrl">blog_articles.xslt</xsl:with-param>
+        </xsl:call-template>
         <xsl:call-template name="header"/>
         <div id="page">
           <div id="wrap">
