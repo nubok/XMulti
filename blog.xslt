@@ -23,6 +23,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   <xsl:include href="blog_head_elements.xslt"/>
   <xsl:include href="blog_articles.xslt"/>
   <xsl:include href="util_html.xslt"/>
+  <xsl:include href="util_language.xslt"/>
 
   <xsl:template name="print_pages_list">
     <ul>
@@ -92,6 +93,9 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
   <!-- Main template -->
   <xsl:template match="/page">
+    <xsl:variable name="lang">
+      <xsl:call-template name="get-language"/>
+    </xsl:variable>
     <html>
       <head>
         <xsl:call-template name="canonical_head_elements"/>
@@ -106,20 +110,40 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
         <div id="page">
           <div id="wrap">
             <div id="sidebar">
-              <h2>Suche</h2>
+              <h2>
+                <xsl:call-template name="print-string">
+                  <xsl:with-param name="lang" select="$lang"/>
+                  <xsl:with-param name="id">search</xsl:with-param>
+                </xsl:call-template>
+              </h2>
               <form method="get" id="searchform" action="javascript:alert('Searching is not yet implemented.')">
                 <div>
                   <input type="text" name="s" id="s" />
                 </div>
               </form>
               <br/>
-              <h2>Seiten</h2>
+              <h2>
+                <xsl:call-template name="print-string">
+                  <xsl:with-param name="lang" select="$lang"/>
+                  <xsl:with-param name="id">pages</xsl:with-param>
+                </xsl:call-template>
+              </h2>
               <xsl:call-template name="print_pages_list"/>
               <br/>
-              <h2>Kategorien</h2>
+              <h2>
+                <xsl:call-template name="print-string">
+                  <xsl:with-param name="lang" select="$lang"/>
+                  <xsl:with-param name="id">categories</xsl:with-param>
+                </xsl:call-template>
+              </h2>
               <xsl:call-template name="print_categories_list"/>
               <br/>
-              <h2>Autoren</h2>
+              <h2>
+                <xsl:call-template name="print-string">
+                  <xsl:with-param name="lang" select="$lang"/>
+                  <xsl:with-param name="id">authors</xsl:with-param>
+                </xsl:call-template>
+              </h2>
               <xsl:call-template name="print_authors_list"/>
               <br />
             </div>

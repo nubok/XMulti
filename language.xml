@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<language xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="language.xsd">
+<language xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+          xsi:noNamespaceSchemaLocation="language.xsd">
   <term id="authors">
     <translation lang="de">Autoren</translation>
     <translation lang="en">Authors</translation>
