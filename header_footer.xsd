@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:hf="urn:schemas-xmulti:header-footer" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:schemas-xmulti:header-footer" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.w3.org/1999/xhtml" />
+  <xs:element name="header-footer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="header">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" xmlns:q1="http://www.w3.org/1999/xhtml" ref="q1:div" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="footer">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element xmlns:q2="http://www.w3.org/1999/xhtml" ref="q2:div" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

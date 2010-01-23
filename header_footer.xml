@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<hf:header-footer xmlns:hf="urn:schemas-xmulti:header-footer" xmlns="http://www.w3.org/1999/xhtml">
+<hf:header-footer xmlns:hf="urn:schemas-xmulti:header-footer" 
+                  xmlns="http://www.w3.org/1999/xhtml"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="urn:schemas-xmulti:header-footer header_footer.xsd">
   <hf:header>
     <div class = "ag-logotext">aber-glaube.net</div>
 

@@ -15,7 +15,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                 xmlns="http://www.w3.org/1999/xhtml">
   <xsl:output method="xml" indent="yes"/>
 
-  <xsl:template name="head_area">
+  <xsl:template name="blog_head_elements">
     <link rel="stylesheet" href="themes/theorem_deutsch/style.css" type="text/css" media="screen"/>
     <link rel="stylesheet" href="themes/theorem_deutsch/print.css" type="text/css" media="print"/>
     <link rel="stylesheet" href="themes/XMulti/styles/XMulti.css" type="text/css"/>

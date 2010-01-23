@@ -181,7 +181,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
     </xsl:element>
   </xsl:template>
 
-  <xsl:template name="body_onload">
+  <xsl:template name="body-onload">
     <xsl:param name="xmlUrl"/>
     <xsl:param name="xsltUrl"/>
     <xsl:attribute name="onload">
@@ -191,5 +191,9 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
       <xsl:value-of select="$xsltUrl"/>
       <xsl:text>');</xsl:text>
     </xsl:attribute>
+  </xsl:template>
+
+  <xsl:template name="get-language">
+    <xsl:value-of select="@lang"/>
   </xsl:template>
 </xsl:stylesheet>

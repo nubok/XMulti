@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<authors xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="authors.xsd">
+<authors xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:noNamespaceSchemaLocation="authors.xsd">
   <!-- Die Autoren sind nicht alphabetisch sortiert, um zu testen, ob sie korrekt sortiert werden -->
   <author id="christian_romacker">
     <prename>Christian</prename>

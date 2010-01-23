@@ -20,8 +20,9 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   <xsl:output method="xml" indent="yes" omit-xml-declaration="yes" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
   <!--<xsl:include href="ie.xslt"/>-->
   <xsl:include href="header_footer.xslt"/>
-  <xsl:include href="blog_head_area.xslt"/>
+  <xsl:include href="blog_head_elements.xslt"/>
   <xsl:include href="blog_articles.xslt"/>
+  <xsl:include href="util_html.xslt"/>
 
   <xsl:template name="print_pages_list">
     <ul>
@@ -93,22 +94,11 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   <xsl:template match="/page">
     <html>
       <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="description">
-          <xsl:attribute name="content">
-            <xsl:value-of select="/page/description" />
-          </xsl:attribute>
-        </meta>
-        <xsl:call-template name="head_area" />
-        <script type="text/javascript" src="scripts/dynamic_xslt.js">
-          <xsl:text> </xsl:text>
-        </script>
-        <title>
-          <xsl:value-of select="/page/title" />
-        </title>
+        <xsl:call-template name="canonical_head_elements"/>
+        <xsl:call-template name="blog_head_elements" />
       </head>
       <body>
-        <xsl:call-template name="body_onload">
+        <xsl:call-template name="body-onload">
           <xsl:with-param name="xmlUrl">blog.xml</xsl:with-param>
           <xsl:with-param name="xsltUrl">blog_articles.xslt</xsl:with-param>
         </xsl:call-template>

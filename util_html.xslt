@@ -11,33 +11,22 @@ Redistribution and use in source and binary forms, with or without modification,
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
-<xsl:stylesheet version="1.0" 
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:hf="urn:schemas-xmulti:header-footer">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns="http://www.w3.org/1999/xhtml">
   <xsl:output method="xml" indent="yes"/>
 
-  <xsl:template match="node()" mode="header-footer">
-    <xsl:element name="{name()}">
-      <xsl:apply-templates select="@* | node()" mode="header-footer"/>
-    </xsl:element>
-  </xsl:template>
-
-  <xsl:template match="@* | comment() | text()" mode="header-footer">
-    <xsl:copy>
-      <xsl:apply-templates select="@* | node()" mode="header-footer"/>
-    </xsl:copy>
-  </xsl:template>
-
-  <xsl:template name="header">
-    <xsl:for-each select="document('header_footer.xml')/hf:header-footer/hf:header">
-      <xsl:apply-templates mode="header-footer"/>
-    </xsl:for-each>
-  </xsl:template>
-
-  <xsl:template name="footer">
-    <xsl:for-each select="document('header_footer.xml')/hf:header-footer/hf:footer">
-      <xsl:apply-templates mode="header-footer"/>
-    </xsl:for-each>
+  <xsl:template name="canonical_head_elements">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description">
+      <xsl:attribute name="content">
+        <xsl:value-of select="/page/description" />
+      </xsl:attribute>
+    </meta>
+    <title>
+      <xsl:value-of select="/page/title" />
+    </title>
+    <script type="text/javascript" src="scripts/dynamic_xslt.js">
+      <xsl:text> </xsl:text>
+    </script>
   </xsl:template>
 </xsl:stylesheet>
