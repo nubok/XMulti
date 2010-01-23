@@ -150,18 +150,18 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
           </div>
           <div id="content">
             <div class="navigation">
-              <div class="alignleft"></div>
-              <div class="alignright"></div>
+              <div class="alignleft"/>
+              <div class="alignright"/>
             </div>
             <div id="articleContainerDiv">
               <xsl:call-template name="print_articles"/>
             </div>
             <div class="navigation">
-              <div class="alignleft"></div>
-              <div class="alignright"></div>
+              <div class="alignleft"/>
+              <div class="alignright"/>
             </div>
           </div>
-          <xsl:call-template name="footer" />
+          <xsl:call-template name="footer"/>
         </div>
       </body>
     </html>

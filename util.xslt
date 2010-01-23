@@ -48,17 +48,15 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
         <xsl:variable name="act_category" select="."/>
 
-        <xsl:for-each select="$category-ids/categories/category">
-          <xsl:if test="@id=$act_category/@id">
+        <xsl:for-each select="$category-ids/categories/category[@id=$act_category/@id]">
+          <category>
+            <xsl:attribute name="id">
+              <xsl:value-of select="$act_category/@id"/>
+            </xsl:attribute>
             <category>
-              <xsl:attribute name="id">
-                <xsl:value-of select="$act_category/@id"/>
-              </xsl:attribute>
-              <category>
-                <xsl:value-of select="$act_category"/>
-              </category>
+              <xsl:value-of select="$act_category"/>
             </category>
-          </xsl:if>
+          </category>
         </xsl:for-each>
       </xsl:for-each>
     </categories>
@@ -74,20 +72,18 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
         <xsl:variable name="act_author" select="."/>
 
-        <xsl:for-each select="$authors-ids/authors/author">
-          <xsl:if test="@id=$act_author/@id">
-            <author>
-              <xsl:attribute name="id">
-                <xsl:value-of select="$act_author/@id"/>
-              </xsl:attribute>
-              <prename>
-                <xsl:value-of select="$act_author/prename"/>
-              </prename>
-              <surname>
-                <xsl:value-of select="$act_author/surname"/>
-              </surname>
-            </author>
-          </xsl:if>
+        <xsl:for-each select="$authors-ids/authors/author[@id=$act_author/@id]">
+          <author>
+            <xsl:attribute name="id">
+              <xsl:value-of select="$act_author/@id"/>
+            </xsl:attribute>
+            <prename>
+              <xsl:value-of select="$act_author/prename"/>
+            </prename>
+            <surname>
+              <xsl:value-of select="$act_author/surname"/>
+            </surname>
+          </author>
         </xsl:for-each>
       </xsl:for-each>
     </authors>
@@ -101,10 +97,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
         <xsl:variable name="act-category">
           <xsl:copy-of select="."/>
         </xsl:variable>
-        <xsl:for-each select="categories/category">
-          <xsl:if test="@id=$category-id">
-            <xsl:copy-of select="$act-category"/>
-          </xsl:if>
+        <xsl:for-each select="categories/category[@id=$category-id]">
+          <xsl:copy-of select="$act-category"/>
         </xsl:for-each>
       </xsl:for-each>
     </articles>
@@ -118,10 +112,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
         <xsl:variable name="act-article">
           <xsl:copy-of select="."/>
         </xsl:variable>
-        <xsl:for-each select="authors/author">
-          <xsl:if test="@id=$author-id">
-            <xsl:copy-of select="$act-article"/>
-          </xsl:if>
+        <xsl:for-each select="authors/author[@id=$author-id]">
+          <xsl:copy-of select="$act-article"/>
         </xsl:for-each>
       </xsl:for-each>
     </articles>
