@@ -98,6 +98,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
               </xsl:variable>
               <xsl:for-each select="exslt:node-set($authors_root)/authors/author">
                 <xsl:call-template name="show_all_articles_of_author_a">
+                  <xsl:with-param name="id" select="@id"/>
                   <xsl:with-param name="prename" select="prename"/>
                   <xsl:with-param name="surname" select="surname"/>
                 </xsl:call-template>
@@ -117,6 +118,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
               </xsl:variable>
               <xsl:for-each select="exslt:node-set($categories_root)/categories/category">
                 <xsl:call-template name="show_all_articles_of_category_a">
+                  <xsl:with-param name="id" select="@id"/>
                   <xsl:with-param name="category" select="."/>
                 </xsl:call-template>
                 <xsl:if test="position()!=last()">

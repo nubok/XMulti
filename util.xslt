@@ -14,6 +14,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="xml" indent="yes"/>
+  
+  <xsl:include href="util_language.xslt"/>
 
   <xsl:template name="format-date">
     <xsl:param name="year"/>
@@ -120,14 +122,22 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   </xsl:template>
 
   <xsl:template name="show_home_a">
+    <xsl:param name="lang"/>
+    
     <xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
       <xsl:attribute name="href">
         <xsl:text>javascript:createContent('', '');</xsl:text>
       </xsl:attribute>
       <xsl:attribute name="title">
-        <xsl:text>Zur Startseite</xsl:text>
+        <xsl:call-template name="print-string">
+          <xsl:with-param name="id">to_start_page</xsl:with-param>
+          <xsl:with-param name="lang" select="$lang"/>
+        </xsl:call-template>
       </xsl:attribute>
-      <xsl:text>Home</xsl:text>
+      <xsl:call-template name="print-string">
+        <xsl:with-param name="id">home</xsl:with-param>
+        <xsl:with-param name="lang" select="$lang"/>
+      </xsl:call-template>
     </xsl:element>
   </xsl:template>
 
@@ -135,6 +145,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
     <xsl:param name="id"/>
     <xsl:param name="prename"/>
     <xsl:param name="surname"/>
+    
     <xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
       <xsl:attribute name="href">
         <xsl:text>javascript:createContent('author', '</xsl:text>

@@ -23,12 +23,15 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   <xsl:include href="blog_head_elements.xslt"/>
   <xsl:include href="blog_articles.xslt"/>
   <xsl:include href="util_html.xslt"/>
-  <xsl:include href="util_language.xslt"/>
 
   <xsl:template name="print_pages_list">
+    <xsl:param name="lang"/>
+    
     <ul>
       <li>
-        <xsl:call-template name="show_home_a"/>
+        <xsl:call-template name="show_home_a">
+          <xsl:with-param name="lang" select="$lang"/>
+        </xsl:call-template>
       </li>
     </ul>
   </xsl:template>
@@ -128,7 +131,9 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                   <xsl:with-param name="id">pages</xsl:with-param>
                 </xsl:call-template>
               </h2>
-              <xsl:call-template name="print_pages_list"/>
+              <xsl:call-template name="print_pages_list">
+                <xsl:with-param name="lang" select="$lang"/>
+              </xsl:call-template>
               <br/>
               <h2>
                 <xsl:call-template name="print-string">

@@ -5,14 +5,34 @@
     <translation lang="de">Autoren</translation>
     <translation lang="en">Authors</translation>
   </term>
+  <term id="show_all_articles_of_author_1">
+    <translation lang="de">Alle Artikel von </translation>
+    <translation lang="en">Show all articles of </translation>
+  </term>
+  <term id="show_all_articles_of_author_2">
+    <translation lang="de"> anzeigen</translation>
+    <translation lang="en"/>
+  </term>
   <term id="categories">
     <translation lang="de">Kategorien</translation>
     <translation lang="en">Categories</translation>
+  </term>
+  <term id="show_all_articles_of_category_1">
+    <translation lang="de">Alle in '</translation>
+    <translation lang="en">Show all articles of category '</translation>
+  </term>
+  <term id="show_all_articles_of_category_2">
+    <translation lang="de">' gespeicherten Artikel anzeigen</translation>
+    <translation lang="en">'</translation>
   </term>
   <term id="home">
     <translation lang="de">Startseite</translation>
     <translation lang="en">Home</translation>
     <translation lang="fr">Accueil</translation>
+  </term>
+  <term id="to_start_page">
+    <translation lang="de">Zur Startseite</translation>
+    <translation lang="en">To the start page</translation>
   </term>
   <term id="pages">
     <translation lang="de">Seiten</translation>
