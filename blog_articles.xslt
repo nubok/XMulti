@@ -45,17 +45,13 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
           <xsl:apply-templates mode="print-article" select="."/>
         </xsl:when>
         <xsl:when test="$type='category'">
-          <xsl:for-each select="categories/category">
-            <xsl:if test="@id=$value">
-              <xsl:apply-templates mode="print-article" select="../.."/>
-            </xsl:if>
+          <xsl:for-each select="categories/category[@id=$value]">
+            <xsl:apply-templates mode="print-article" select="../.."/>
           </xsl:for-each>
         </xsl:when>
         <xsl:when test="$type='author'">
-          <xsl:for-each select="authors/author">
-            <xsl:if test="@id=$value">
-              <xsl:apply-templates mode="print-article" select="../.."/>
-            </xsl:if>
+          <xsl:for-each select="authors/author[@id=$value]">
+            <xsl:apply-templates mode="print-article" select="../.."/>
           </xsl:for-each>
         </xsl:when>
       </xsl:choose>

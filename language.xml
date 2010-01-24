@@ -42,4 +42,54 @@
     <translation lang="de">Suche</translation>
     <translation lang="en">Search</translation>
   </term>
+  
+  <!-- the names of the months -->
+  <term id="month_1">
+    <translation lang="de">Januar</translation>
+    <translation lang="en">January</translation>
+  </term>
+  <term id="month_2">
+    <translation lang="de">Februar</translation>
+    <translation lang="en">February</translation>
+  </term>
+  <term id="month_3">
+    <translation lang="de">März</translation>
+    <translation lang="en">March</translation>
+  </term>
+  <term id="month_4">
+    <translation lang="de">April</translation>
+    <translation lang="en">April</translation>
+  </term>
+  <term id="month_5">
+    <translation lang="de">Mai</translation>
+    <translation lang="en">May</translation>
+  </term>
+  <term id="month_6">
+    <translation lang="de">Juni</translation>
+    <translation lang="en">June</translation>
+  </term>
+  <term id="month_7">
+    <translation lang="de">Juli</translation>
+    <translation lang="en">Juli</translation>
+  </term>
+  <term id="month_8">
+    <translation lang="de">August</translation>
+    <translation lang="en">August</translation>
+  </term>
+  <term id="month_9">
+    <translation lang="de">September</translation>
+    <translation lang="en">September</translation>
+  </term>
+  <term id="month_10">
+    <translation lang="de">Oktober</translation>
+    <translation lang="en">October</translation>
+  </term>
+  <term id="month_11">
+    <translation lang="de">November</translation>
+    <translation lang="en">November</translation>
+  </term>
+  <term id="month_12">
+    <translation lang="de">Dezember</translation>
+    <translation lang="en">December</translation>
+  </term>
 </language>
