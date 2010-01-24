@@ -150,11 +150,17 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
         <xsl:text>');</xsl:text>
       </xsl:attribute>
       <xsl:attribute name="title">
-        <xsl:text>Alle Artikel von </xsl:text>
+        <xsl:call-template name="print-string">
+          <xsl:with-param name="id">show_all_articles_of_author_1</xsl:with-param>
+          <xsl:with-param name="lang" select="$lang"/>
+        </xsl:call-template>
         <xsl:value-of select="$prename"/>
         <xsl:text> </xsl:text>
         <xsl:value-of select="$surname"/>
-        <xsl:text> anzeigen</xsl:text>
+        <xsl:call-template name="print-string">
+          <xsl:with-param name="id">show_all_articles_of_author_2</xsl:with-param>
+          <xsl:with-param name="lang" select="$lang"/>
+        </xsl:call-template>
       </xsl:attribute>
       <xsl:value-of select="$prename"/>
       <xsl:text> </xsl:text>
@@ -176,9 +182,15 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
         <xsl:text>');</xsl:text>
       </xsl:attribute>
       <xsl:attribute name="title">
-        <xsl:text>Alle in '</xsl:text>
+        <xsl:call-template name="print-string">
+          <xsl:with-param name="id">show_all_articles_of_category_1</xsl:with-param>
+          <xsl:with-param name="lang" select="$lang"/>
+        </xsl:call-template>
         <xsl:value-of select="$category"/>
-        <xsl:text>' gespeicherten Artikel anzeigen</xsl:text>
+        <xsl:call-template name="print-string">
+          <xsl:with-param name="id">show_all_articles_of_category_2</xsl:with-param>
+          <xsl:with-param name="lang" select="$lang"/>
+        </xsl:call-template>
       </xsl:attribute>
       <xsl:value-of select="$category"/>
     </xsl:element>
