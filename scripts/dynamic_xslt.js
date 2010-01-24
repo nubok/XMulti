@@ -52,7 +52,7 @@ function initXSLT(paramXmlUrl, paramXsltUrl) {
     }
 }
 
-function createContent(paramType, paramValue) {
+function createContent(paramType, paramValue, paramLang) {
     docXml = null;
     docXslt = null;
 
@@ -62,8 +62,8 @@ function createContent(paramType, paramValue) {
 
         if (docXml.load) {
             docXml.addEventListener('load', function() {
-                docXslt.addEventListener('load', function() {
-                    transform(paramType, paramValue);
+            docXslt.addEventListener('load', function() {
+                transform(paramType, paramValue, paramLang);
                 }, false);
                 docXslt.load(xsltUrl);
             }, false);
@@ -76,7 +76,7 @@ function createContent(paramType, paramValue) {
                     if (this.status == 200) {
                         docXml = this.responseXML.documentElement;
                         if (docXml && docXslt)
-                            transform(paramType, paramValue);
+                            transform(paramType, paramValue, paramLang);
                     } else {
                         alert('There was a problem retrieving file ' +
                     xmlUrl + '\n' + this.statusText);
@@ -105,13 +105,14 @@ function createContent(paramType, paramValue) {
     }
 }
 
-function transform(paramType, paramValue) {
+function transform(paramType, paramValue, paramLang) {
     if (platformMoz) {
         var processor = new XSLTProcessor();
         processor.importStylesheet(docXslt);
 
         processor.setParameter(null, 'type', paramType);
         processor.setParameter(null, 'value', paramValue);
+        processor.setParameter(null, 'lang', paramLang);
 
         var fragment = processor.transformToFragment(docXml, document);
 

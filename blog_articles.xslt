@@ -24,13 +24,18 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
   <xsl:param name="type"/>
   <xsl:param name="value"/>
+  <xsl:param name="lang"/>
 
   <xsl:template match="/">
-    <xsl:call-template name="print_articles"/>
+    <xsl:call-template name="print_articles">
+      <xsl:with-param name="lang" select="$lang"/>
+    </xsl:call-template>
   </xsl:template>
 
   <!-- Print the articles -->
   <xsl:template name="print_articles">
+    <xsl:param name="lang"/>
+    
     <xsl:for-each select="document('articles.xml')/articles/article">
       <!-- Order articles by date and time -->
       <xsl:sort order="descending" select="creation_timestamp/@year" data-type="number" />

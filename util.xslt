@@ -147,11 +147,14 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
     <xsl:param name="id"/>
     <xsl:param name="prename"/>
     <xsl:param name="surname"/>
+    <xsl:param name="lang"/>
     
     <xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
       <xsl:attribute name="href">
         <xsl:text>javascript:createContent('author', '</xsl:text>
         <xsl:value-of select="$id"/>
+        <xsl:text>', '</xsl:text>
+        <xsl:value-of select="$lang"/>
         <xsl:text>');</xsl:text>
       </xsl:attribute>
       <xsl:attribute name="title">
@@ -170,11 +173,14 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   <xsl:template name="show_all_articles_of_category_a">
     <xsl:param name="id"/>
     <xsl:param name="category"/>
+    <xsl:param name="lang"/>
 
     <xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
       <xsl:attribute name="href">
         <xsl:text>javascript:createContent('category', '</xsl:text>
         <xsl:value-of select="$id"/>
+        <xsl:text>', '</xsl:text>
+        <xsl:value-of select="$lang"/>
         <xsl:text>');</xsl:text>
       </xsl:attribute>
       <xsl:attribute name="title">
