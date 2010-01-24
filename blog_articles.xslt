@@ -42,43 +42,51 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
       <xsl:choose>
         <xsl:when test="$type=''">
-          <xsl:apply-templates mode="print-article" select="."/>
+          <xsl:call-template name="print-article">
+            <xsl:with-param name="origin" select="."/>
+          </xsl:call-template>
         </xsl:when>
         <xsl:when test="$type='category'">
           <xsl:for-each select="categories/category[@id=$value]">
-            <xsl:apply-templates mode="print-article" select="../.."/>
+            <xsl:call-template name="print-article">
+              <xsl:with-param name="origin" select="../.."/>
+            </xsl:call-template>
           </xsl:for-each>
         </xsl:when>
         <xsl:when test="$type='author'">
           <xsl:for-each select="authors/author[@id=$value]">
-            <xsl:apply-templates mode="print-article" select="../.."/>
+            <xsl:call-template name="print-article">
+              <xsl:with-param name="origin" select="../.."/>
+            </xsl:call-template>
           </xsl:for-each>
         </xsl:when>
       </xsl:choose>
     </xsl:for-each>
   </xsl:template>
 
-  <xsl:template mode="print-article" match="*">
+  <xsl:template name="print-article">
+    <xsl:param name="origin"/>
+    
     <div class="entry-archive">
       <!-- Print title of article -->
       <div class="entrytitle">
         <h2>
           <a href="#">
-            <xsl:value-of select="title"/>
+            <xsl:value-of select="$origin/title"/>
           </a>
         </h2>
       </div>
       <!-- Print date of creation -->
       <h3>
         <xsl:call-template name="format-date">
-          <xsl:with-param name="year" select="creation_timestamp/@year"/>
-          <xsl:with-param name="month" select="creation_timestamp/@month"/>
-          <xsl:with-param name="day" select="creation_timestamp/@day"/>
+          <xsl:with-param name="year" select="$origin/creation_timestamp/@year"/>
+          <xsl:with-param name="month" select="$origin/creation_timestamp/@month"/>
+          <xsl:with-param name="day" select="$origin/creation_timestamp/@day"/>
         </xsl:call-template>
       </h3>
       <!-- Print article content -->
       <div class="entrybody">
-        <xsl:apply-templates mode="html" select="content/*"/>
+        <xsl:apply-templates mode="html" select="$origin/content/*"/>
       </div>
       <div class="entrymeta">
         <div class="postinfo">
@@ -89,7 +97,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
               <xsl:text>Eingetragen von </xsl:text>
               <xsl:variable name="authors_root">
                 <xsl:call-template name="author-names-from-author-ids">
-                  <xsl:with-param name="authors-ids" select="."/>
+                  <xsl:with-param name="authors-ids" select="$origin"/>
                 </xsl:call-template>
               </xsl:variable>
               <xsl:for-each select="exslt:node-set($authors_root)/authors/author">
@@ -109,7 +117,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
               <xsl:text>Abgelegt unter </xsl:text>
               <xsl:variable name="categories_root">
                 <xsl:call-template name="category-names-from-category-ids">
-                  <xsl:with-param name="category-ids" select="."/>
+                  <xsl:with-param name="category-ids" select="$origin"/>
                 </xsl:call-template>
               </xsl:variable>
               <xsl:for-each select="exslt:node-set($categories_root)/categories/category">
