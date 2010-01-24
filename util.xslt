@@ -25,20 +25,10 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
     
     <xsl:value-of select="$day"/>
     <xsl:text>. </xsl:text>
-    <xsl:choose>
-      <xsl:when test="$month=1">Januar</xsl:when>
-      <xsl:when test="$month=2">Februar</xsl:when>
-      <xsl:when test="$month=3">März</xsl:when>
-      <xsl:when test="$month=4">April</xsl:when>
-      <xsl:when test="$month=5">Mai</xsl:when>
-      <xsl:when test="$month=6">Juni</xsl:when>
-      <xsl:when test="$month=7">Juli</xsl:when>
-      <xsl:when test="$month=8">August</xsl:when>
-      <xsl:when test="$month=9">September</xsl:when>
-      <xsl:when test="$month=10">Oktober</xsl:when>
-      <xsl:when test="$month=11">November</xsl:when>
-      <xsl:when test="$month=12">Dezember</xsl:when>
-    </xsl:choose>
+    <xsl:call-template name="print-string">
+      <xsl:with-param name="id" select="concat('month_', $month)"/>
+      <xsl:with-param name="lang" select="$lang"/>
+    </xsl:call-template>
     <xsl:text> </xsl:text>
     <xsl:value-of select="$year"/>
   </xsl:template>

@@ -91,6 +91,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
           <xsl:with-param name="year" select="$origin/creation_timestamp/@year"/>
           <xsl:with-param name="month" select="$origin/creation_timestamp/@month"/>
           <xsl:with-param name="day" select="$origin/creation_timestamp/@day"/>
+          <xsl:with-param name="lang" select="$lang"/>
         </xsl:call-template>
       </h3>
       <!-- Print article content -->
@@ -100,10 +101,20 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
       <div class="entrymeta">
         <div class="postinfo">
           <p>
-            <img src="themes/XMulti/images/User.png" class="icon" alt="Eingetragen von" />
+            <img src="themes/XMulti/images/User.png" class="icon">
+              <xsl:attribute name="alt">
+                <xsl:call-template name="print-string">
+                  <xsl:with-param name="id">person</xsl:with-param>
+                  <xsl:with-param name="lang" select="$lang"/>
+                </xsl:call-template>
+              </xsl:attribute>
+            </img>
             <!-- Print the names of the authors -->
             <span class="postedby">
-              <xsl:text>Eingetragen von </xsl:text>
+              <xsl:call-template name="print-string">
+                <xsl:with-param name="id">recorded_by</xsl:with-param>
+                <xsl:with-param name="lang" select="$lang"/>
+              </xsl:call-template>
               <xsl:variable name="authors_root">
                 <xsl:call-template name="author-names-from-author-ids">
                   <xsl:with-param name="authors-ids" select="$origin"/>
@@ -121,10 +132,20 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                 </xsl:if>
               </xsl:for-each>
             </span>
-            <br />
-            <img src="themes/XMulti/images/Folder.png" class="icon" alt="Abgelegt unter" />
+            <br/>
+            <img src="themes/XMulti/images/Folder.png" class="icon">
+              <xsl:attribute name="alt">
+                <xsl:call-template name="print-string">
+                  <xsl:with-param name="id">folder</xsl:with-param>
+                  <xsl:with-param name="lang" select="$lang"/>
+                </xsl:call-template>
+              </xsl:attribute>
+            </img>
             <span class="filedto">
-              <xsl:text>Abgelegt unter </xsl:text>
+              <xsl:call-template name="print-string">
+                <xsl:with-param name="id">filed_to</xsl:with-param>
+                <xsl:with-param name="lang" select="$lang"/>
+              </xsl:call-template>
               <xsl:variable name="categories_root">
                 <xsl:call-template name="category-names-from-category-ids">
                   <xsl:with-param name="category-ids" select="$origin"/>

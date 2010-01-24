@@ -44,12 +44,22 @@
   </term>
 
   <term id="filed_to">
-    <translation lang="de">Abgelegt unter</translation>
-    <translation lang="en">Filed to</translation>
+    <translation lang="de">Abgelegt unter </translation>
+    <translation lang="en">Filed to </translation>
   </term>
   <term id="recorded_by">
-    <translation lang="de">Eingetragen von</translation>
-    <translation lang="en">Recorded by</translation>
+    <translation lang="de">Eingetragen von </translation>
+    <translation lang="en">Recorded by </translation>
+  </term>
+
+  <!-- alt tags of the images for authors and categories -->
+  <term id="person">
+    <translation lang="de">Person</translation>
+    <translation lang="en">person</translation>
+  </term>
+  <term id="folder">
+    <translation lang="de">Ordner</translation>
+    <translation lang="en">folder</translation>
   </term>
   
   <!-- the names of the months -->
