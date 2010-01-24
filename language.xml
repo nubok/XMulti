@@ -42,6 +42,15 @@
     <translation lang="de">Suche</translation>
     <translation lang="en">Search</translation>
   </term>
+
+  <term id="filed_to">
+    <translation lang="de">Abgelegt unter </translation>
+    <translation lang="en">Filed to </translation>
+  </term>
+  <term id="recorded_by">
+    <translation lang="de">Eingetragen von </translation>
+    <translation lang="en">Recorded by </translation>
+  </term>
   
   <!-- the names of the months -->
   <term id="month_1">
@@ -70,7 +79,7 @@
   </term>
   <term id="month_7">
     <translation lang="de">Juli</translation>
-    <translation lang="en">Juli</translation>
+    <translation lang="en">July</translation>
   </term>
   <term id="month_8">
     <translation lang="de">August</translation>
