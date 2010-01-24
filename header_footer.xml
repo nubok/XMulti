@@ -4,7 +4,7 @@
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="urn:schemas-xmulti:header-footer header_footer.xsd">
   <hf:header>
-    <div class = "ag-logotext">aber-glaube.net</div>
+    <div class="ag-logotext">aber-glaube.net</div>
 
     <div id="bodypicture-hauptseite">
       <a name="a7"  id="a7">&#xA0;</a>&#xA0;
@@ -82,7 +82,7 @@
   <hf:footer>
     <div id="footer">
       <!-- footer START -->
-      <div class= "textbereich-footer-b">
+      <div class="textbereich-footer-b">
         Creative Commons <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/de/" target="_blank">by-nc-nd</a> 2009 by aber-glaube.net/Christian Romacker/Wolfgang Keller<br />
         <a href="#a7">
           <img src="http://www.aber-glaube.net/basics/logos/oben.gif" alt="nach oben" width="47" height="11" style="border: 0" />

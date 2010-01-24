@@ -21,6 +21,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
     <xsl:param name="year"/>
     <xsl:param name="month"/>
     <xsl:param name="day"/>
+    <xsl:param name="lang"/>
+    
     <xsl:value-of select="$day"/>
     <xsl:text>. </xsl:text>
     <xsl:choose>
