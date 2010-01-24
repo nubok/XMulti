@@ -27,13 +27,13 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   <xsl:param name="lang"/>
 
   <xsl:template match="/">
-    <xsl:call-template name="print_articles">
+    <xsl:call-template name="print-articles">
       <xsl:with-param name="lang" select="$lang"/>
     </xsl:call-template>
   </xsl:template>
 
   <!-- Print the articles -->
-  <xsl:template name="print_articles">
+  <xsl:template name="print-articles">
     <xsl:param name="lang"/>
     
     <xsl:for-each select="document('articles.xml')/articles/article">
@@ -49,12 +49,14 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
         <xsl:when test="$type=''">
           <xsl:call-template name="print-article">
             <xsl:with-param name="origin" select="."/>
+            <xsl:with-param name="lang" select="$lang"/>
           </xsl:call-template>
         </xsl:when>
         <xsl:when test="$type='category'">
           <xsl:for-each select="categories/category[@id=$value]">
             <xsl:call-template name="print-article">
               <xsl:with-param name="origin" select="../.."/>
+              <xsl:with-param name="lang" select="$lang"/>
             </xsl:call-template>
           </xsl:for-each>
         </xsl:when>
@@ -62,6 +64,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
           <xsl:for-each select="authors/author[@id=$value]">
             <xsl:call-template name="print-article">
               <xsl:with-param name="origin" select="../.."/>
+              <xsl:with-param name="lang" select="$lang"/>
             </xsl:call-template>
           </xsl:for-each>
         </xsl:when>
@@ -71,6 +74,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
   <xsl:template name="print-article">
     <xsl:param name="origin"/>
+    <xsl:param name="lang"/>
     
     <div class="entry-archive">
       <!-- Print title of article -->
@@ -110,6 +114,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                   <xsl:with-param name="id" select="@id"/>
                   <xsl:with-param name="prename" select="prename"/>
                   <xsl:with-param name="surname" select="surname"/>
+                  <xsl:with-param name="lang" select="$lang"/>
                 </xsl:call-template>
                 <xsl:if test="position()!=last()">
                   <xsl:text>, </xsl:text>
@@ -129,6 +134,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                 <xsl:call-template name="show_all_articles_of_category_a">
                   <xsl:with-param name="id" select="@id"/>
                   <xsl:with-param name="category" select="."/>
+                  <xsl:with-param name="lang" select="$lang"/>
                 </xsl:call-template>
                 <xsl:if test="position()!=last()">
                   <xsl:text>, </xsl:text>

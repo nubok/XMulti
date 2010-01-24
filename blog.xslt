@@ -37,6 +37,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   </xsl:template>
 
   <xsl:template name="print_categories_list">
+    <xsl:param name="lang"/>
+    
     <ul>
       <xsl:for-each select="document('categories.xml')/categories/category">
         <xsl:sort select="."/>
@@ -52,6 +54,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
             <xsl:call-template name="show_all_articles_of_category_a">
               <xsl:with-param name="id" select="@id"/>
               <xsl:with-param name="category" select="."/>
+              <xsl:with-param name="lang" select="$lang"/>
             </xsl:call-template>
             <xsl:text> (</xsl:text>
             <xsl:value-of select="$article-count"/>
@@ -63,6 +66,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
   </xsl:template>
 
   <xsl:template name="print_authors_list">
+    <xsl:param name="lang"/>
+    
     <ul>
       <xsl:for-each select="document('authors.xml')/authors/author">
         <xsl:sort select="surname"/>
@@ -79,6 +84,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
               <xsl:with-param name="id" select="@id"/>
               <xsl:with-param name="prename" select="prename"/>
               <xsl:with-param name="surname" select="surname"/>
+              <xsl:with-param name="lang" select="$lang"/>
             </xsl:call-template>
             <xsl:text> (</xsl:text>
             <xsl:value-of select="$article-count"/>
@@ -141,7 +147,9 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                   <xsl:with-param name="id">categories</xsl:with-param>
                 </xsl:call-template>
               </h2>
-              <xsl:call-template name="print_categories_list"/>
+              <xsl:call-template name="print_categories_list">
+                <xsl:with-param name="lang" select="$lang"/>
+              </xsl:call-template>
               <br/>
               <h2>
                 <xsl:call-template name="print-string">
@@ -149,7 +157,9 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                   <xsl:with-param name="id">authors</xsl:with-param>
                 </xsl:call-template>
               </h2>
-              <xsl:call-template name="print_authors_list"/>
+              <xsl:call-template name="print_authors_list">
+                <xsl:with-param name="lang" select="$lang"/>
+              </xsl:call-template>
               <br />
             </div>
           </div>
@@ -159,7 +169,9 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
               <div class="alignright"/>
             </div>
             <div id="articleContainerDiv">
-              <xsl:call-template name="print_articles"/>
+              <xsl:call-template name="print-articles">
+                <xsl:with-param name="lang" select="$lang"/>
+              </xsl:call-template>
             </div>
             <div class="navigation">
               <div class="alignleft"/>

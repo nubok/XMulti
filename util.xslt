@@ -128,7 +128,9 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
     
     <xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
       <xsl:attribute name="href">
-        <xsl:text>javascript:createContent('', '');</xsl:text>
+        <xsl:text>javascript:createContent('', '', '</xsl:text>
+        <xsl:value-of select="$lang"/>
+        <xsl:text>');</xsl:text>
       </xsl:attribute>
       <xsl:attribute name="title">
         <xsl:call-template name="print-string">
