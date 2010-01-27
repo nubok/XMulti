@@ -45,14 +45,29 @@ function initXSLT(paramXmlUrl, paramXsltUrl) {
     xsltUrl = paramXsltUrl;
 
     if (noXSLT) {
-        alert("No XSLT processor found. Please use IE8 or Mozilla Firefox");
+        alert("No XSLT processor found. Please use IE8, Opera or Mozilla Firefox");
     }
     else {
-        target = document.getElementById("articleContainerDiv");
+        targetDiv = document.getElementById("articleContainerDiv");
     }
 }
 
-function createContent(paramType, paramValue, paramLang) {
+function classAttribute()
+{
+    return document.all ? 'className' : 'class';
+}
+
+function createContent(paramElement, paramType, paramValue, paramLang) {
+    var currentElements = document.getElementsByTagName('li');
+
+    for (var currentIdx = 0; currentIdx < currentElements.length; currentIdx++) {
+        if (currentElements[currentIdx].getAttribute(classAttribute()) === 'selected') {
+            currentElements[currentIdx].setAttribute(classAttribute(), null);
+        }
+    }
+
+    paramElement.parentNode.setAttribute(classAttribute(), 'selected');
+    
     docXml = null;
     docXslt = null;
 
@@ -116,9 +131,9 @@ function transform(paramType, paramValue, paramLang) {
 
         var fragment = processor.transformToFragment(docXml, document);
 
-        while (target.hasChildNodes())
-            target.removeChild(target.childNodes[0]);
+        while (targetDiv.firstChild)
+            targetDiv.removeChild(targetDiv.firstChild);
 
-        target.appendChild(fragment);
+        targetDiv.appendChild(fragment);
     }
 }

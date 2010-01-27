@@ -113,26 +113,49 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
     </articles>
   </xsl:template>
 
-  <xsl:template name="show_home_a">
+  <xsl:template name="create-navigation-link">
+    <xsl:param name="type"/><!-- empty string, article, category etc. -->
+    <xsl:param name="type-value"/><!-- empty string, article, category etc. -->
+    <xsl:param name="title"/><!-- the title of the link -->
+    <xsl:param name="text"/><!-- the text to appear in the link (already translated) -->
     <xsl:param name="lang"/>
-    
+
     <xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
-      <xsl:attribute name="href">
-        <xsl:text>javascript:createContent('', '', '</xsl:text>
+      <xsl:attribute name="href">#</xsl:attribute>
+      <xsl:attribute name="onclick">
+        <xsl:text>javascript:createContent(this, '</xsl:text>
+        <xsl:value-of select="$type"/>
+        <xsl:text>', '</xsl:text>
+        <xsl:value-of select="$type-value"/>
+        <xsl:text>', '</xsl:text>
         <xsl:value-of select="$lang"/>
         <xsl:text>');</xsl:text>
       </xsl:attribute>
       <xsl:attribute name="title">
+        <xsl:value-of select="$title"/>
+      </xsl:attribute>
+      <xsl:value-of select="$text"/>
+    </xsl:element>
+  </xsl:template>
+
+  <xsl:template name="show_home_a">
+    <xsl:param name="lang"/>
+
+    <xsl:call-template name="create-navigation-link">
+      <xsl:with-param name="title">
         <xsl:call-template name="print-string">
           <xsl:with-param name="id">to_start_page</xsl:with-param>
           <xsl:with-param name="lang" select="$lang"/>
         </xsl:call-template>
-      </xsl:attribute>
-      <xsl:call-template name="print-string">
-        <xsl:with-param name="id">home</xsl:with-param>
-        <xsl:with-param name="lang" select="$lang"/>
-      </xsl:call-template>
-    </xsl:element>
+      </xsl:with-param>
+      <xsl:with-param name="text">
+        <xsl:call-template name="print-string">
+          <xsl:with-param name="id">home</xsl:with-param>
+          <xsl:with-param name="lang" select="$lang"/>
+        </xsl:call-template>
+      </xsl:with-param>
+      <xsl:with-param name="lang" select="$lang"/>
+    </xsl:call-template>
   </xsl:template>
 
   <xsl:template name="show_all_articles_of_author_a">
@@ -140,16 +163,11 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
     <xsl:param name="prename"/>
     <xsl:param name="surname"/>
     <xsl:param name="lang"/>
-    
-    <xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
-      <xsl:attribute name="href">
-        <xsl:text>javascript:createContent('author', '</xsl:text>
-        <xsl:value-of select="$id"/>
-        <xsl:text>', '</xsl:text>
-        <xsl:value-of select="$lang"/>
-        <xsl:text>');</xsl:text>
-      </xsl:attribute>
-      <xsl:attribute name="title">
+
+    <xsl:call-template name="create-navigation-link">
+      <xsl:with-param name="type">author</xsl:with-param>
+      <xsl:with-param name="type-value" select="$id"/>
+      <xsl:with-param name="title">
         <xsl:call-template name="print-string">
           <xsl:with-param name="id">show_all_articles_of_author_1</xsl:with-param>
           <xsl:with-param name="lang" select="$lang"/>
@@ -161,11 +179,14 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
           <xsl:with-param name="id">show_all_articles_of_author_2</xsl:with-param>
           <xsl:with-param name="lang" select="$lang"/>
         </xsl:call-template>
-      </xsl:attribute>
-      <xsl:value-of select="$prename"/>
-      <xsl:text> </xsl:text>
-      <xsl:value-of select="$surname"/>
-    </xsl:element>
+      </xsl:with-param>
+      <xsl:with-param name="text">
+        <xsl:value-of select="$prename"/>
+        <xsl:text> </xsl:text>
+        <xsl:value-of select="$surname"/>
+      </xsl:with-param>
+      <xsl:with-param name="lang" select="$lang"/>
+    </xsl:call-template>
   </xsl:template>
 
   <xsl:template name="show_all_articles_of_category_a">
@@ -173,15 +194,10 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
     <xsl:param name="category"/>
     <xsl:param name="lang"/>
 
-    <xsl:element name="a" namespace="http://www.w3.org/1999/xhtml">
-      <xsl:attribute name="href">
-        <xsl:text>javascript:createContent('category', '</xsl:text>
-        <xsl:value-of select="$id"/>
-        <xsl:text>', '</xsl:text>
-        <xsl:value-of select="$lang"/>
-        <xsl:text>');</xsl:text>
-      </xsl:attribute>
-      <xsl:attribute name="title">
+    <xsl:call-template name="create-navigation-link">
+      <xsl:with-param name="type">category</xsl:with-param>
+      <xsl:with-param name="type-value" select="$id"/>
+      <xsl:with-param name="title">
         <xsl:call-template name="print-string">
           <xsl:with-param name="id">show_all_articles_of_category_1</xsl:with-param>
           <xsl:with-param name="lang" select="$lang"/>
@@ -191,9 +207,12 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
           <xsl:with-param name="id">show_all_articles_of_category_2</xsl:with-param>
           <xsl:with-param name="lang" select="$lang"/>
         </xsl:call-template>
-      </xsl:attribute>
-      <xsl:value-of select="$category"/>
-    </xsl:element>
+      </xsl:with-param>
+      <xsl:with-param name="text">
+        <xsl:value-of select="$category"/>
+      </xsl:with-param>
+      <xsl:with-param name="lang" select="$lang"/>
+    </xsl:call-template>
   </xsl:template>
 
   <xsl:template name="body-onload">

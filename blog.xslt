@@ -28,7 +28,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
     <xsl:param name="lang"/>
     
     <ul>
-      <li>
+      <li class="selected">
         <xsl:call-template name="show_home_a">
           <xsl:with-param name="lang" select="$lang"/>
         </xsl:call-template>

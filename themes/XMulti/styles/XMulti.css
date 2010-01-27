@@ -2,3 +2,8 @@ img.icon
 {
 	width: 16px;
 }
+
+#sidebar ul li.selected
+{
+	background-color: #69af6e;
+}

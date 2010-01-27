@@ -32,7 +32,7 @@ body {
 #sidebar{
 	font-size:1.1em;
 	float:left;
-	padding:0 12px 0 0;
+	padding:0;/*padding:0 12px 0 0;*/ /* Changed by WK */
 	width:240px;
 	border-right:2px solid #69af6e;
 	margin-bottom:10px;
@@ -179,9 +179,6 @@ blockquote{
 	padding:0 0 0 27px;
 	color:#57865f;
 	font-style:italic;
-}
-.home * blockquote, .entry-archive blockquote{
-	background:url(./images/blockquote_home.gif) top left no-repeat;
 }
 
 .entrymeta .postinfo img {
@@ -356,16 +353,6 @@ img{
 img a{
 	border:none;
 }
-.ads{
-	margin-top:20px;
-	border-top:2px solid #fff;
-	padding-top:20px;
-	text-align:center;
-}
-.errormessage{
-	padding-top:160px;
-	background:url(./images/error_emblem.gif) top center no-repeat;
-}
 #sidebar .breaker{
 	padding:10px 0 0 0;
 	margin:0 0 10px 0;
@@ -405,12 +392,6 @@ img a{
 	width:109px;
 	height:109px;
 	margin:3px;
-}
-.gravatar{
-	float:left;
-	padding:1px;
-	border:1px solid #fff;
-	margin-right:10px;
 }
 .taggedas{
 	font-variant:small-caps;
