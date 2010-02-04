@@ -24,7 +24,10 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
     <xsl:param name="lang"/>
     
     <xsl:value-of select="$day"/>
-    <xsl:text>. </xsl:text>
+    <xsl:call-template name="print-string">
+      <xsl:with-param name="id">month_prefix</xsl:with-param>
+      <xsl:with-param name="lang" select="$lang"/>
+    </xsl:call-template>
     <xsl:call-template name="print-string">
       <xsl:with-param name="id" select="concat('month_', $month)"/>
       <xsl:with-param name="lang" select="$lang"/>

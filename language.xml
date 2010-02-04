@@ -62,53 +62,72 @@
     <translation lang="en">folder</translation>
   </term>
   
+  <!-- the prefix before names of months -->
+  <term id="month_prefix">
+    <translation lang="de">. </translation>
+    <translation lang="en">. </translation>
+    <translation lang="fr"> </translation>
+  </term>
+  
   <!-- the names of the months -->
   <term id="month_1">
     <translation lang="de">Januar</translation>
     <translation lang="en">January</translation>
+    <translation lang="fr">janvier</translation>
   </term>
   <term id="month_2">
     <translation lang="de">Februar</translation>
     <translation lang="en">February</translation>
+    <translation lang="fr">février</translation>
   </term>
   <term id="month_3">
     <translation lang="de">März</translation>
     <translation lang="en">March</translation>
+    <translation lang="fr">mars</translation>
   </term>
   <term id="month_4">
     <translation lang="de">April</translation>
     <translation lang="en">April</translation>
+    <translation lang="fr">avril</translation>
   </term>
   <term id="month_5">
     <translation lang="de">Mai</translation>
     <translation lang="en">May</translation>
+    <translation lang="fr">mai</translation>
   </term>
   <term id="month_6">
     <translation lang="de">Juni</translation>
     <translation lang="en">June</translation>
+    <translation lang="fr">juin</translation>
   </term>
   <term id="month_7">
     <translation lang="de">Juli</translation>
     <translation lang="en">July</translation>
+    <translation lang="fr">juillet</translation>
   </term>
   <term id="month_8">
     <translation lang="de">August</translation>
     <translation lang="en">August</translation>
+    <translation lang="fr">août</translation>
   </term>
   <term id="month_9">
     <translation lang="de">September</translation>
     <translation lang="en">September</translation>
+    <translation lang="fr">septembre</translation>
   </term>
   <term id="month_10">
     <translation lang="de">Oktober</translation>
     <translation lang="en">October</translation>
+    <translation lang="fr">octobre</translation>
   </term>
   <term id="month_11">
     <translation lang="de">November</translation>
     <translation lang="en">November</translation>
+    <translation lang="fr">novembre</translation>
   </term>
   <term id="month_12">
     <translation lang="de">Dezember</translation>
     <translation lang="en">December</translation>
+    <translation lang="fr">décembre</translation>
   </term>
 </language>
