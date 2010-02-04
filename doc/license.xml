@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<file-licences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="licence.xsd">
+<file-licenses xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="license.xsd">
   <folder src=".">
     <files>
       <file src="*.xml"/>
@@ -38,4 +38,4 @@ License:  You can use these icons on any personal or commercial projects as you 
       </licence-information>
     </files>
   </folder>
-</file-licences>
+</file-licenses>
