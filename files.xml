@@ -3,5 +3,6 @@
   <file type="articles" src="articles.xml"/>
   <file type="authors" src="authors.xml"/>
   <file type="categories" src="categories.xml"/>
+  <file type="language" src="language.xml"/>
   <file type="page" src="page.xml"/>
 </files>
