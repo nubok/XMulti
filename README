@@ -1,0 +1,30 @@
+XMulti
+
+A universal content management system written in XSLT (OK, at the moment there is only blog functionality - but I'm working on adding more usage cases).
+
+System requirements:
+A browser with decent XSLT support:
+Firefox 3.6 (earlier versions should work, but are not tested)
+Opera 10.x (in some 9.x version it did not work (although Opera already claimed at this time to have proper XSLT support - so you should not believe the marketing bullsh*t) - you'll probably really need 10.x)
+I am working on Internet Explorer 8 support (there are no plans to support older versions of Internet Explorer)
+
+Browsers known not to work:
+Safari 4.0
+Chrome 4.0
+since they both have no proper support of xsl:include (this is a well-known bug in Webkit based browsers). As soon as this bug is fixed I'll probably add support.
+
+License:
+XMulti is licensed under the following BSD license:
+
+Copyright (c) 2009-2010, Wolfgang Keller
+All rights reserved.
+ 
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+  
+ 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+ 3. The name of the author may not be used to endorse or promote products derived from this software without specific prior written permission.
+   
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
