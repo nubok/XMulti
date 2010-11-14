@@ -18,7 +18,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
                 xmlns:msxsl="urn:schemas-microsoft-com:xslt"
                 exclude-result-prefixes="exslt msxsl">
   <xsl:output method="xml" indent="yes" omit-xml-declaration="yes" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
-  <!--<xsl:include href="data/common/xslt/ie.xslt"/>-->
+  <xsl:include href="data/common/xslt/ie.xslt"/>
   <xsl:include href="header_footer.xslt"/>
   <xsl:include href="blog_head_elements.xslt"/>
   <xsl:include href="blog_articles.xslt"/>
